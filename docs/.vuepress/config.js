@@ -1,6 +1,6 @@
 module.exports = {
-    title: 'Hello VuePress',
-    description: 'Just playing around',
+    title: 'Lisianthus的小站',
+    description: 'Be Happy To',
     head: [ // 注入到当前页面的 HTML <head> 中的标签
         ['link', { rel: 'icon', href: '/favicon.jpg' }], // 增加一个自定义的 favicon(网页标签的图标)
     ],
@@ -15,13 +15,15 @@ module.exports = {
         sidebar: {
             '/guide/': [
                 ['', 'HTML'],
-                'css',
-                'javascript',
-                'typescript'
+                // 'css',
+                // 'javascript',
+                // 'typescript',
+                'typescript',
+                'vuepress',
             ]
         },
         sidebarDepth: 2,
-        repo: 'lisianthus-a/lisianthus-a.github.io',
+        repo: 'Lisianthus-A/Lisianthus-A.github.io',
         smoothScroll: true,  //平滑滚动
         lastUpdated: '最后更新时间'
     }
