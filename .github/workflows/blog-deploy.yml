@@ -11,8 +11,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - run: npm ci && npm run docs:build
-    - run: cp CNAME docs/.vuepress/dist/
+    - run: npm install vuepress
+    - run: npm run docs:build
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2.5.0
