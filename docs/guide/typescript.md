@@ -90,6 +90,12 @@ function foo(param: string | number) {
 const tuple: [string, number] = ['Tom', 10];
 ```
 
+## 枚举
+``` TypeScript
+enum Days { Sun, Mon, Tue, Wed, Thu, Fri, Sat };
+//经过编译后Days为{"0": "Sun", "1": "Mon", "2": "Tue", ..., "Sun": 0, "Mon": 1, ...}
+```
+
 ## 类
 ``` TypeScript
 interface IOption {
