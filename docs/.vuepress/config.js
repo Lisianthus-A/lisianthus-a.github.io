@@ -19,6 +19,7 @@ module.exports = {
                 // 'javascript',
                 // 'typescript',
                 'typescript',
+                'git',
                 'vuepress',
             ]
         },
