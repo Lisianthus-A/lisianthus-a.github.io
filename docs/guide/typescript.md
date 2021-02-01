@@ -2,7 +2,7 @@
 sidebarDepth: 3
 ---
 # TypeScript
-大部分参考于[TypeScript 入门教程](https://ts.xcatliu.com/)
+> 大部分参考于 [TypeScript 入门教程](https://ts.xcatliu.com/)
 ## 基本类型
 ``` TypeScript
 let bool: boolean = false;  //布尔值
@@ -10,7 +10,7 @@ let num: number = 1;  //数值
 let str: string = '11';  //字符串
 let nul: null = null;  //null
 const udf: undefined = undefined;  //undefined
-let unUse: void = undefined;  //void 严格模式下只能用undefined, 非严格模式可以是undefined | null
+let unUse: void = undefined;  //void 严格模式下只能用 undefined，非严格模式可以是 undefined | null
 const unionType: string | number = 1;  //联合类型
 //类型别名
 type Str = string;
@@ -39,7 +39,7 @@ const tom: Person = {
 const arr1: Array<number> = [1, 2];  //泛型
 const arr2: string[] = ['1', '2'];
 
-//数组接口  一般用于类数组，如arguments
+//数组接口  一般用于类数组，如 arguments
 interface NumberArray {
     [index: number]: any;
     length: number;
@@ -47,7 +47,7 @@ interface NumberArray {
 }
 const foo = function (): void {
     let args: NumberArray = arguments;
-    let args2: IArguments = arguments;  //TS定义好的类型，与NumberArray接口形状相同
+    let args2: IArguments = arguments;  //TS 定义好的类型，与 NumberArray 接口形状相同
 }
 ```
 
@@ -56,7 +56,7 @@ const foo = function (): void {
 function foo1(): void { }
 function foo2(a: number): string { return a.toString(); }
 const foo3 = (): void => { }
-//TS中的=>用来表示函数的定义  (输入) => 输出
+//TS 中的 => 用来表示函数的定义  (输入) => 输出
 const foo4: (x: number, y: number) => void = (x: number, y: number): void => { }
 
 //函数接口
@@ -80,7 +80,7 @@ function reverse(x: number | string): number | string | void {
 ``` TypeScript
 //值 as 类型
 function foo(param: string | number) {
-    // console.log(param.length);  //报错，只能用string和number的公共属性
+    // console.log(param.length);  //报错，只能用 string 和 number 的公共属性
     console.log((param as string).length);  //正常编译
 }
 ```
@@ -93,7 +93,7 @@ const tuple: [string, number] = ['Tom', 10];
 ## 枚举
 ``` TypeScript
 enum Days { Sun, Mon, Tue, Wed, Thu, Fri, Sat };
-//经过编译后Days为{"0": "Sun", "1": "Mon", "2": "Tue", ..., "Sun": 0, "Mon": 1, ...}
+//经过编译后 Days 为 {"0": "Sun", "1": "Mon", "2": "Tue", ..., "Sun": 0, "Mon": 1, ...}
 ```
 
 ## 类
@@ -107,7 +107,7 @@ interface IOption {
 class Person {
     public name: string;  //公有  所有属性和方法默认公有
     private age: number;  //私有  只能再该类内部访问
-    protected gender: 'male' | 'female';  //受保护  与private相似，但可以被子类访问
+    protected gender: 'male' | 'female';  //受保护  与 private 相似，但可以被子类访问
     readonly id: number;  //只读  只能出现在属性声明或构造函数中
 
     constructor(option: IOption) {
@@ -181,7 +181,7 @@ interface Point {  //不会包含静态属性、方法和构造函数
 function createArray(length: number, value: any): Array<any> {
     return new Array(length).fill(value);
 }
-//可以预见，createArray函数返回数组的类型与参数value相同，可以用泛型改写为：
+//可以预见， createArray 函数返回数组的类型与参数 value 相同，可以用泛型改写为：
 function createArray<T>(length: number, value: T): Array<T> {
     return new Array(length).fill(value);
 }
@@ -190,8 +190,8 @@ function createArray<T>(length: number, value: T): Array<T> {
 interface Lengthwise {
     length: number;
 }
-//约束泛型T必须符合Lengthwise的形状 (即包含number类型的length属性)
-//泛型之间也可以互相约束 <T extends U, U>  这样保证了T的属性集包含U的所有属性
+//约束泛型T必须符合 Lengthwise 的形状 (即包含 number 类型的 length 属性)
+//泛型之间也可以互相约束 <T extends U, U>  这样保证了 T 的属性集包含 U 的所有属性
 function loggingIdentity<T extends Lengwise>(param: T): T {
     console.log(param.length);
     return param;

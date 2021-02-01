@@ -2,10 +2,10 @@
 sidebarDepth: 3
 ---
 # VuePress
-## 使用VuePress搭建博客
+## 使用 VuePress 搭建博客
 ### Hello, World
-1. 首先创建新文件夹，命名为blog，在blog目录下运行 `npm init -y` 初始化。
-2. 安装Vuepress:
+1. 首先创建新文件夹，命名为 blog，在 blog 目录下运行 `npm init -y` 初始化。
+2. 安装 Vuepress:
 ``` sh
 npm install VuePress
 ```
@@ -27,7 +27,7 @@ npm run docs:dev
 VuePress 会在 `http://localhost:8080` 启动一个热重载的开发服务器。
 
 ### 配置
-1. 修改 `blog/docs/README.md`， 内容如下：
+1. 修改 `blog/docs/README.md`，内容如下：
 ```
 ---
 home: true #主页
@@ -40,8 +40,8 @@ pageClass: custom-page-index #为该页添加一个名为custom-page-index的css
 footer: MIT Licensed | Copyright © 2020-present Lisianthus-A #页脚
 ---
 ```
-2. 在 `blog/docs/.vuepress` 目录新建文件夹，命名为 `public`，并添加 `favicon.jpg` 和 `logo.jpg` 文件作为网站icon和Logo。
-3. 在 `blog/docs/.vuepress` 目录新建文件夹，命名为 `styles`，并在 `blog/docs/.vuepress/styles` 目录下新建文件 `index.styl` ，可选择性地覆盖页面Css类，把主页图片设置成圆角：
+2. 在 `blog/docs/.vuepress` 目录新建文件夹，命名为 `public`，并添加 `favicon.jpg` 和 `logo.jpg` 文件作为网站 icon 和 Logo。
+3. 在 `blog/docs/.vuepress` 目录新建文件夹，命名为 `styles`，并在 `blog/docs/.vuepress/styles` 目录下新建文件 `index.styl`，可选择性地覆盖页面 CSS 类，把主页图片设置成圆角：
 ``` css
 /* blog/docs/.vuepress/styles/index.styl */
 .custom-page-index .hero img {
@@ -87,7 +87,7 @@ module.exports = {
 
 运行 `npm run docs:dev` 可查看页面效果。以后要写文章，只需在 `blog/docs/guide` 目录下新建 `fileName.md` 文件，并更新 `blog/docs/.vuepress/config.js` 的 `sidebar` 配置即可。
 
-## 部署到Git Page
+## 部署到 Git Page
 ### 手动部署
 1. 在 `blog` 目录下初始化git：
 ``` sh
@@ -98,8 +98,8 @@ git init
 node_modules
 /docs/.vuepress/dist
 ```
-3. 提交代码到GitHub：
-在GitHub中新建仓库，命名为 `yourUserName.github.io` ，例如 `Lisianthus-A.github.io`。
+3. 提交代码到 GitHub：
+在 GitHub 中新建仓库，命名为 `yourUserName.github.io`，例如 `Lisianthus-A.github.io`。
 ``` sh
 git add .
 git commit -m 'Update'
@@ -107,7 +107,7 @@ git remote add origin https://github.com/Lisianthus-A/Lisianthus-A.github.io.git
 git branch -M main
 git push -u origin main
 ```
-4. 执行 `npm run docs:build`，在 `blog` 文件夹外部新建文件夹，命名为 `gh-page` ，复制 `blog/docs/.vuepress/dist` 内的所有文件到 `gh-page` 文件夹后，执行以下命令：
+4. 执行 `npm run docs:build`，在 `blog` 文件夹外部新建文件夹，命名为 `gh-page`，复制 `blog/docs/.vuepress/dist` 内的所有文件到 `gh-page` 文件夹后，执行以下命令：
 ``` sh
 git init
 git add .
@@ -116,21 +116,21 @@ git branch -m gh-page
 git remote add origin https://github.com/Lisianthus-A/Lisianthus-A.github.io.git
 git push -u origin gh-page
 ```
-5. 打开仓库网页，点击Settings，设置GitHub Pages的Source为gh-page分支，文件夹为/root，并保存。
+5. 打开仓库网页，点击 Settings，设置 GitHub Pages 的 Source 为 gh-page 分支，文件夹为 /root，并保存。
 等待几分钟， `Lisianthus-A.github.io` 网页上的内容就变成博客了。
 
 ### 自动部署
-手动部署太麻烦了，每次修改文章都需要手动build文件，然后推送到gh-page分支，这里介绍一下使用GitHub Action实现自动部署。
-1. 生成ssh密钥：
+手动部署太麻烦了，每次修改文章都需要手动 build 文件，然后推送到 gh-page 分支，这里介绍一下使用 GitHub Action 实现自动部署。
+1. 生成 ssh 密钥：
 ``` sh
 cd ~/.ssh
 ssh-keygen -t rsa -b 4096 -C yourmail@mail.com -f gh-page -N ""
 ```
-执行命令后会在 `.ssh` 文件夹生成两个文件，分别是 `gh-page` 和 `gh-page.pub` ， `.ssh` 文件夹位置不固定，我的是在 `C:\Users\admin\.ssh` 。
+执行命令后会在 `.ssh` 文件夹生成两个文件，分别是 `gh-page` 和 `gh-page.pub` ， `.ssh` 文件夹位置不固定，我的是在 `C:\Users\admin\.ssh`。
 
-2. 打开仓库网页，点击Settings --> Secrets ，添加新的仓库密钥，Name填 `publish` ，Value填 `gh-page` 的内容。
-3. 点击Settings --> Deploy keys， 添加部署密钥，Title填 `publish` ， Key填 `gh-page.pub` 的内容。
-4. 点击Actions，添加新的工作流，文件内容如下：
+2. 打开仓库网页，点击 Settings --> Secrets ，添加新的仓库密钥，Name 填 `publish`，Value 填 `gh-page` 的内容。
+3. 点击 Settings --> Deploy keys， 添加部署密钥，Title填 `publish`， Key填 `gh-page.pub` 的内容。
+4. 点击 Actions，添加新的工作流，文件内容如下：
 ``` yml
 name: blog deploy
 
@@ -155,4 +155,4 @@ jobs:
         PUBLISH_BRANCH: gh-page
         PUBLISH_DIR: docs/.vuepress/dist
 ```
-现在每次push到main分支后，github都会自动将新的内容部署到Git Page了。
+现在每次 push 到 main 分支后，github 都会自动将新的内容部署到 Git Page 了。

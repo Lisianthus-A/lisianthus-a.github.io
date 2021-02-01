@@ -14,10 +14,9 @@ module.exports = {
         ],
         sidebar: {
             '/guide/': [
-                ['', 'HTML'],
+                ['', 'JavaScript'],
                 // 'css',
-                // 'javascript',
-                // 'typescript',
+                'react',
                 'typescript',
                 'git',
                 'vuepress',
