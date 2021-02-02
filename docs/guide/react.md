@@ -29,7 +29,7 @@ const [value, setValue] = useState(0);
 
 useEffect(() => {
     const id = setInterval(() => console.log(value), 1000);
-    return () => clearInterval(value);
+    return () => clearInterval(id);
 },
     [value]
 );
