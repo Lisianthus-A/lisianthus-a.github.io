@@ -58,7 +58,7 @@ const Parent = () => {
         <CountContext.Provider value={count}>
             <div>
                 <Child />
-                <button onclick={() => setState(count  + 1)}>click</button>
+                <button onClick={() => setState(count  + 1)}>click</button>
             </div>
         </CountContext.Provider>
     );
@@ -118,7 +118,7 @@ const Demo = () => {
 
     return (
         <div ref={divRef} />
-    )
+    );
 }
 ```
 
@@ -177,7 +177,7 @@ setState({ a: 2 });  //state 变为 { a: 2, b: 2}
 ```
 
 ### useInterval
-将 `setInterval` 进行包装，自动清除旧的定时器，并且可以通过 `state` 来开始，暂停定时器。
+将 `setInterval` 进行包装，自动清除旧的定时器，并且可以通过 `state` 来开始、暂停定时器。
 ``` js
 //定义
 const useInterval = (callback, delay) => {
