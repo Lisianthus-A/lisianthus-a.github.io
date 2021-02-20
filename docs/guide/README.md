@@ -151,3 +151,13 @@ const throttle = (fn, time) => {
     }
 }
 ```
+
+### 实现 add(1, 2)(3)(4)
+``` js
+//add(1, 2)(3)() --> 6
+//add(1)(2)(3, 4, 5)() --> 15
+const add = (...args) => {
+    const sum = args.reduce((prev, curr) => prev + curr);
+    return (...nextArgs) => nextArgs.length > 0 ? add(sum, ...nextArgs) : sum;
+}
+```
