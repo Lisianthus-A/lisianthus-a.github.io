@@ -41,83 +41,77 @@ const clone = target => {
 }
 
 //深克隆
-const deepClone = target => {
-    const cloned = new Map();  //克隆过的对象，处理嵌套调用
+const deepClone = (target) => {
 
     //克隆对象
-    const cloneObject = obj => {
-        const o = {};
-        cloned.set(obj, o);
+    const cloneObject = (obj) => {
+        const clonedObj = {};
+        cloned.set(obj, clonedObj);
 
         for (const [key, value] of Object.entries(obj)) {
-            const type = Object.prototype.toString.call(value);
-            switch (type) {
-                case '[object Number]':
-                case '[object Boolean]':
-                case '[object String]':
-                case '[object Null]':
-                case '[object Undefined]':
-                case '[object Function]':
-                    o[key] = value;
-                    break;
-                case '[object Object]':
-                    o[key] = cloned.get(value) || cloned(value);
-                    break;
-                case '[object Set]':
-                    o[key] = cloneSet(value);
-                    break;
-                case '[object Map]':
-                    o[key] = cloneMap(value);
-                    break;
-            }
+            clonedObj[key] = getClonedValue(value);
         }
 
-        return o;
+        return clonedObj;
     }
 
+    //克隆数组
+    const cloneArray = (array) => array.map(item => getClonedValue(item));
+
     //克隆 Set
-    const cloneSet = set => {
+    const cloneSet = (set) => {
         const s = new Set();
         for (const value of set) {
-            s.add(value);
+            const newValue = getClonedValue(value);
+            s.add(newValue);
         }
         return s;
     }
 
     //克隆 Map
-    const cloneMap = map => {
+    const cloneMap = (map) => {
         const m = new Map();
         for (const [key, value] of map.entries()) {
-            const newKey = deepClone(key);
-            m.set(newKey, value);
+            const newKey = getClonedValue(key);
+            const newValue = getClonedValue(value);
+            m.set(newKey, newValue);
         }
         return m;
     }
 
     //克隆正则
-    const clonedRegExp = regex => {
+    const cloneRegExp = (regex) => {
         const regexStr = regex.toString();
         const flags = regexStr.slice(regexStr.lastIndexOf('/') + 1);
         return new RegExp(regex.source, flags);
     }
 
-    switch (Object.prototype.toString.call(target)) {
-        case '[object Number]':
-        case '[object Boolean]':
-        case '[object String]':
-        case '[object Null]':
-        case '[object Undefined]':
-        case '[object Function]':
-            return target;
-        case '[object Object]':
-            return cloneObject(target);
-        case '[object Set]':
-            return cloneSet(target);
-        case '[object Map]':
-            return cloneMap(target);
-        case '[object RegExp]':
-            return clonedRegExp(target);
+    //获取克隆后的值
+    const getClonedValue = (value) => {
+        const type = Object.prototype.toString.call(value);
+        switch (type) {
+            case '[object Number]':
+            case '[object Boolean]':
+            case '[object String]':
+            case '[object Null]':
+            case '[object Undefined]':
+            case '[object Function]':  //这 6 种类型直接返回
+                return value;
+            case '[object Array]':  //数组
+                return cloneArray(value);
+            case '[object Object]':  //对象
+                return cloned.get(value) || cloneObject(value);
+            case '[object Set]':  //Set
+                return cloneSet(value);
+            case '[object Map]':  //Map
+                return cloneMap(value);
+            case '[object RegExp]':  //正则表达式
+                return cloneRegExp(value);
+        }
     }
+
+    const cloned = new Map();  //克隆过的对象，处理嵌套调用
+    return getClonedValue(target);
 }
 ```
 

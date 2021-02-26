@@ -168,7 +168,7 @@ class Point {
         this.y = y;
     }
 }
-//类Point会创建以下接口
+//类 Point 会创建以下接口
 interface Point {  //不会包含静态属性、方法和构造函数
     x: number;
     y: number;
@@ -181,7 +181,7 @@ interface Point {  //不会包含静态属性、方法和构造函数
 function createArray(length: number, value: any): Array<any> {
     return new Array(length).fill(value);
 }
-//可以预见， createArray 函数返回数组的类型与参数 value 相同，可以用泛型改写为：
+//可以预见，createArray 函数返回数组的类型与参数 value 相同，可以用泛型改写为：
 function createArray<T>(length: number, value: T): Array<T> {
     return new Array(length).fill(value);
 }

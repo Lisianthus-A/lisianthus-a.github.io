@@ -30,14 +30,12 @@ const [value, setValue] = useState(0);
 useEffect(() => {
     const id = setInterval(() => console.log(value), 1000);
     return () => clearInterval(id);
-},
-    [value]
-);
+},[value]);
 ```
 
 第一个参数是副作用函数，函数的返回值是用于消除副作用的函数；
 
-第二个参数是数组，里面是 `useEffect` 的依赖项，当依赖项发生改变时， `useEffect` 中的副作用函数会再次运行。
+第二个参数是数组，里面是 `useEffect` 的依赖项，当依赖项发生改变时，`useEffect` 中的副作用函数会再次运行。
 
 > 可以在一个组件中使用多个 `useEffect` 方法。
 
@@ -83,13 +81,11 @@ const Child = () => {
 ``` js
 const handleClick = useCallback(() => {
     //do something
-},
-    []
-);
+},[]);
 ```
 第一个参数用于执行的函数；
 
-第二个参数是数组，里面是 `useCallback` 的依赖项，依赖项没有发生改变时， `handleClick` 总是指向同一个函数。
+第二个参数是数组，里面是 `useCallback` 的依赖项，依赖项没有发生改变时，`handleClick` 总是指向同一个函数。
 
 ### useMemo
 用于保存变量的值，避免重复进行繁重的计算。
@@ -100,9 +96,7 @@ const id = useMemo(() => {
     let result = null;
     //繁重的计算
     return result;
-},
-    []
-);
+},[]);
 ```
 第一个参数用于执行的函数；
 
@@ -130,9 +124,7 @@ const Parent = () => {
     useEffect(() => {
         const div = childRef.current;
         console.log(div.classList[0]);  //child
-    },
-        []
-    );
+    },[]);
 
     return (
         <div>
@@ -166,9 +158,7 @@ const useSetState = (initialState = {}) => {
     const [state, saveState] = useState(initialState);
     const setState = useCallback((newState) => {
         saveState(prevState => ({ ...prevState, ...newState }));
-    },
-        []
-    );
+    },[]);
     return [state, setState];
 }
 
@@ -197,9 +187,7 @@ const useInterval = (callback, delay) => {
             let id = setInterval(tick, delay);
             return () => clearInterval(id);
         }
-    },
-        [delay]
-    );
+    },[delay]);
 }
 
 const [isRunning, setIsRunning] = useState(true);
@@ -208,5 +196,4 @@ const [isRunning, setIsRunning] = useState(true);
 useInterval(() => {}, isRunning ? 1000 : null);
 //暂停定时器
 setIsRunning(false);
-
 ```

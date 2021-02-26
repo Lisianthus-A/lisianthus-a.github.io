@@ -128,8 +128,8 @@ ssh-keygen -t rsa -b 4096 -C yourmail@mail.com -f gh-page -N ""
 ```
 执行命令后会在 `.ssh` 文件夹生成两个文件，分别是 `gh-page` 和 `gh-page.pub` ， `.ssh` 文件夹位置不固定，我的是在 `C:\Users\admin\.ssh`。
 
-2. 打开仓库网页，点击 Settings --> Secrets ，添加新的仓库密钥，Name 填 `publish`，Value 填 `gh-page` 的内容。
-3. 点击 Settings --> Deploy keys， 添加部署密钥，Title填 `publish`， Key填 `gh-page.pub` 的内容。
+2. 打开仓库网页，点击 Settings --> Secrets，添加新的仓库密钥，Name 填 `publish`，Value 填 `gh-page` 的内容。
+3. 点击 Settings --> Deploy keys， 添加部署密钥，Title填 `publish`，Key填 `gh-page.pub` 的内容。
 4. 点击 Actions，添加新的工作流，文件内容如下：
 ``` yml
 name: blog deploy

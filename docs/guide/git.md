@@ -27,7 +27,7 @@ revert: 版本回滚
 ```
 
 ### scope
-可选，说明commit影响的范围，如：utils, components, test...
+可选，说明 commit 影响的范围，如：utils, components, test...
 
 ### subject
 必选，commit 的简短描述
@@ -41,7 +41,7 @@ revert: 版本回滚
 ```
 
 ### footer
-可选，一些备注，通常是 BREAKING CHANGE (当前代码与上一个版本不兼容) 或修复的 bug (关闭 Issue) 的链接。
+可选，一些备注，通常是 BREAKING CHANGE(当前代码与上一个版本不兼容) 或修复的 bug(关闭 Issue) 的链接。
 
 ### 示例
 ```
