@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.jpg">
     <meta name="description" content="Be Happy To">
     
-    <link rel="preload" href="/assets/css/0.styles.e2b706ec.css" as="style"><link rel="preload" href="/assets/js/app.e5c4e9cb.js" as="script"><link rel="preload" href="/assets/js/2.71c703e1.js" as="script"><link rel="preload" href="/assets/js/12.eb579653.js" as="script"><link rel="prefetch" href="/assets/js/10.2ee0d760.js"><link rel="prefetch" href="/assets/js/11.b80e7d03.js"><link rel="prefetch" href="/assets/js/13.7ed0d5c8.js"><link rel="prefetch" href="/assets/js/3.591737c2.js"><link rel="prefetch" href="/assets/js/4.28455034.js"><link rel="prefetch" href="/assets/js/5.57d06145.js"><link rel="prefetch" href="/assets/js/6.30e9bd82.js"><link rel="prefetch" href="/assets/js/7.2b96eec3.js"><link rel="prefetch" href="/assets/js/8.64e0b4d3.js"><link rel="prefetch" href="/assets/js/9.aab66e2d.js">
+    <link rel="preload" href="/assets/css/0.styles.e2b706ec.css" as="style"><link rel="preload" href="/assets/js/app.d222bca6.js" as="script"><link rel="preload" href="/assets/js/2.e37583f0.js" as="script"><link rel="preload" href="/assets/js/12.2100f153.js" as="script"><link rel="prefetch" href="/assets/js/10.18face95.js"><link rel="prefetch" href="/assets/js/11.0ac034d5.js"><link rel="prefetch" href="/assets/js/13.4861b020.js"><link rel="prefetch" href="/assets/js/3.86576851.js"><link rel="prefetch" href="/assets/js/4.0120f7fc.js"><link rel="prefetch" href="/assets/js/5.0616bdfc.js"><link rel="prefetch" href="/assets/js/6.db22e1ba.js"><link rel="prefetch" href="/assets/js/7.55eed85c.js"><link rel="prefetch" href="/assets/js/8.628aff46.js"><link rel="prefetch" href="/assets/js/9.5a0d3020.js">
     <link rel="stylesheet" href="/assets/css/0.styles.e2b706ec.css">
   </head>
   <body>
@@ -159,7 +159,7 @@
         <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span class="token comment">//类Point会创建以下接口</span>
+<span class="token comment">//类 Point 会创建以下接口</span>
 <span class="token keyword">interface</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>  <span class="token comment">//不会包含静态属性、方法和构造函数</span>
     x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
     y<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
@@ -168,7 +168,7 @@
 <span class="token keyword">function</span> <span class="token function">createArray</span><span class="token punctuation">(</span>length<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token builtin">Array</span></span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token comment">//可以预见， createArray 函数返回数组的类型与参数 value 相同，可以用泛型改写为：</span>
+<span class="token comment">//可以预见，createArray 函数返回数组的类型与参数 value 相同，可以用泛型改写为：</span>
 <span class="token keyword">function</span> <span class="token generic-function"><span class="token function">createArray</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>length<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token builtin">Array</span></span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -183,7 +183,7 @@
     <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>param<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> param<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2/1/2021, 9:43:46 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2/26/2021, 1:32:52 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/guide/react.html" class="prev">
         React
@@ -192,6 +192,6 @@
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.e5c4e9cb.js" defer></script><script src="/assets/js/2.71c703e1.js" defer></script><script src="/assets/js/12.eb579653.js" defer></script>
+    <script src="/assets/js/app.d222bca6.js" defer></script><script src="/assets/js/2.e37583f0.js" defer></script><script src="/assets/js/12.2100f153.js" defer></script>
   </body>
 </html>

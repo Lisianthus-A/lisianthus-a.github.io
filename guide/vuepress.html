@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.jpg">
     <meta name="description" content="Be Happy To">
     
-    <link rel="preload" href="/assets/css/0.styles.e2b706ec.css" as="style"><link rel="preload" href="/assets/js/app.e5c4e9cb.js" as="script"><link rel="preload" href="/assets/js/2.71c703e1.js" as="script"><link rel="preload" href="/assets/js/13.7ed0d5c8.js" as="script"><link rel="prefetch" href="/assets/js/10.2ee0d760.js"><link rel="prefetch" href="/assets/js/11.b80e7d03.js"><link rel="prefetch" href="/assets/js/12.eb579653.js"><link rel="prefetch" href="/assets/js/3.591737c2.js"><link rel="prefetch" href="/assets/js/4.28455034.js"><link rel="prefetch" href="/assets/js/5.57d06145.js"><link rel="prefetch" href="/assets/js/6.30e9bd82.js"><link rel="prefetch" href="/assets/js/7.2b96eec3.js"><link rel="prefetch" href="/assets/js/8.64e0b4d3.js"><link rel="prefetch" href="/assets/js/9.aab66e2d.js">
+    <link rel="preload" href="/assets/css/0.styles.e2b706ec.css" as="style"><link rel="preload" href="/assets/js/app.d222bca6.js" as="script"><link rel="preload" href="/assets/js/2.e37583f0.js" as="script"><link rel="preload" href="/assets/js/13.4861b020.js" as="script"><link rel="prefetch" href="/assets/js/10.18face95.js"><link rel="prefetch" href="/assets/js/11.0ac034d5.js"><link rel="prefetch" href="/assets/js/12.2100f153.js"><link rel="prefetch" href="/assets/js/3.86576851.js"><link rel="prefetch" href="/assets/js/4.0120f7fc.js"><link rel="prefetch" href="/assets/js/5.0616bdfc.js"><link rel="prefetch" href="/assets/js/6.db22e1ba.js"><link rel="prefetch" href="/assets/js/7.55eed85c.js"><link rel="prefetch" href="/assets/js/8.628aff46.js"><link rel="prefetch" href="/assets/js/9.5a0d3020.js">
     <link rel="stylesheet" href="/assets/css/0.styles.e2b706ec.css">
   </head>
   <body>
@@ -92,7 +92,7 @@ footer: MIT Licensed | Copyright © 2020-present Lisianthus-A #页脚
 </code></pre></div><ol start="5"><li>打开仓库网页，点击 Settings，设置 GitHub Pages 的 Source 为 gh-page 分支，文件夹为 /root，并保存。
 等待几分钟， <code>Lisianthus-A.github.io</code> 网页上的内容就变成博客了。</li></ol> <h3 id="自动部署"><a href="#自动部署" class="header-anchor">#</a> 自动部署</h3> <p>手动部署太麻烦了，每次修改文章都需要手动 build 文件，然后推送到 gh-page 分支，这里介绍一下使用 GitHub Action 实现自动部署。</p> <ol><li>生成 ssh 密钥：</li></ol> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token builtin class-name">cd</span> ~/.ssh
 ssh-keygen -t rsa -b <span class="token number">4096</span> -C yourmail@mail.com -f gh-page -N <span class="token string">&quot;&quot;</span>
-</code></pre></div><p>执行命令后会在 <code>.ssh</code> 文件夹生成两个文件，分别是 <code>gh-page</code> 和 <code>gh-page.pub</code> ， <code>.ssh</code> 文件夹位置不固定，我的是在 <code>C:\Users\admin\.ssh</code>。</p> <ol start="2"><li>打开仓库网页，点击 Settings --&gt; Secrets ，添加新的仓库密钥，Name 填 <code>publish</code>，Value 填 <code>gh-page</code> 的内容。</li> <li>点击 Settings --&gt; Deploy keys， 添加部署密钥，Title填 <code>publish</code>， Key填 <code>gh-page.pub</code> 的内容。</li> <li>点击 Actions，添加新的工作流，文件内容如下：</li></ol> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">name</span><span class="token punctuation">:</span> blog deploy
+</code></pre></div><p>执行命令后会在 <code>.ssh</code> 文件夹生成两个文件，分别是 <code>gh-page</code> 和 <code>gh-page.pub</code> ， <code>.ssh</code> 文件夹位置不固定，我的是在 <code>C:\Users\admin\.ssh</code>。</p> <ol start="2"><li>打开仓库网页，点击 Settings --&gt; Secrets，添加新的仓库密钥，Name 填 <code>publish</code>，Value 填 <code>gh-page</code> 的内容。</li> <li>点击 Settings --&gt; Deploy keys， 添加部署密钥，Title填 <code>publish</code>，Key填 <code>gh-page.pub</code> 的内容。</li> <li>点击 Actions，添加新的工作流，文件内容如下：</li></ol> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">name</span><span class="token punctuation">:</span> blog deploy
 
 <span class="token key atrule">on</span><span class="token punctuation">:</span> 
   <span class="token key atrule">push</span><span class="token punctuation">:</span>
@@ -114,11 +114,11 @@ ssh-keygen -t rsa -b <span class="token number">4096</span> -C yourmail@mail.com
         <span class="token key atrule">ACTIONS_DEPLOY_KEY</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span>secrets.publish<span class="token punctuation">}</span><span class="token punctuation">}</span>
         <span class="token key atrule">PUBLISH_BRANCH</span><span class="token punctuation">:</span> gh<span class="token punctuation">-</span>page
         <span class="token key atrule">PUBLISH_DIR</span><span class="token punctuation">:</span> docs/.vuepress/dist
-</code></pre></div><p>现在每次 push 到 main 分支后，github 都会自动将新的内容部署到 Git Page 了。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2/1/2021, 9:54:23 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><p>现在每次 push 到 main 分支后，github 都会自动将新的内容部署到 Git Page 了。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2/26/2021, 1:32:52 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/guide/git.html" class="prev">
         Git
       </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.e5c4e9cb.js" defer></script><script src="/assets/js/2.71c703e1.js" defer></script><script src="/assets/js/13.7ed0d5c8.js" defer></script>
+    <script src="/assets/js/app.d222bca6.js" defer></script><script src="/assets/js/2.e37583f0.js" defer></script><script src="/assets/js/13.4861b020.js" defer></script>
   </body>
 </html>
