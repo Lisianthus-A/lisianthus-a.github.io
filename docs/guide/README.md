@@ -27,6 +27,34 @@ for (let i = 0; i < 4; i++) {
 }
 ```
 
+## 事件循环
+js 引擎在执行任务时，不会等待异步任务的结果返回，而是将其挂起，等结果返回了再将异步任务的回调加入事件队列。
+
+事件队列分为微任务队列和宏任务队列，引擎会优先执行微任务，再执行宏任务。<br>
+宏任务包括：`setTimeout`、`setInterval` 等<br>
+微任务包括：`Promise`、`queueMicrotask` 等
+
+当 js 引擎完成当前的同步任务后，会清空 <span style="color: #ee8888;">所有</span> 微任务，然后执行 <span style="color: #ee8888;">一条</span> 宏任务，再清空微任务，不断循环。
+
+``` js
+console.log(1);
+setTimeout(() => {
+    console.log(2);
+    queueMicrotask(() => console.log(3));
+});
+
+new Promise(resolve => {
+    console.log(4);
+    resolve();
+}).then(() => {
+    console.log(5);
+    setTimeout(() => {
+        console.log(6); 
+    });
+});
+```
+选中区域查看打印循序：<span style="color: #fff; border: 1px dashed #000;">1 4 5 2 3 6</span>
+
 ## 编程题
 
 ### 克隆
