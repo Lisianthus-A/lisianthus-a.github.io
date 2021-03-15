@@ -30,7 +30,7 @@ const [value, setValue] = useState(0);
 useEffect(() => {
     const id = setInterval(() => console.log(value), 1000);
     return () => clearInterval(id);
-},[value]);
+}, [value]);
 ```
 
 第一个参数是副作用函数，函数的返回值是用于消除副作用的函数；
@@ -81,7 +81,7 @@ const Child = () => {
 ``` js
 const handleClick = useCallback(() => {
     //do something
-},[]);
+}, []);
 ```
 第一个参数用于执行的函数；
 
@@ -96,7 +96,7 @@ const id = useMemo(() => {
     let result = null;
     //繁重的计算
     return result;
-},[]);
+}, []);
 ```
 第一个参数用于执行的函数；
 
@@ -124,7 +124,7 @@ const Parent = () => {
     useEffect(() => {
         const div = childRef.current;
         console.log(div.classList[0]);  //child
-    },[]);
+    }, []);
 
     return (
         <div>
@@ -158,7 +158,7 @@ const useSetState = (initialState = {}) => {
     const [state, saveState] = useState(initialState);
     const setState = useCallback((newState) => {
         saveState(prevState => ({ ...prevState, ...newState }));
-    },[]);
+    }, []);
     return [state, setState];
 }
 
@@ -187,7 +187,7 @@ const useInterval = (callback, delay) => {
             let id = setInterval(tick, delay);
             return () => clearInterval(id);
         }
-    },[delay]);
+    }, [delay]);
 }
 
 const [isRunning, setIsRunning] = useState(true);

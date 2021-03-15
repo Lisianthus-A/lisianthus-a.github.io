@@ -55,6 +55,29 @@ new Promise(resolve => {
 ```
 选中区域查看打印循序：<span style="color: #fff; border: 1px dashed #000;">1 4 5 2 3 6</span>
 
+## 原型链
+所有除 `null` 外的对象都有一个属性 `__proto__`，指向该对象的原型。<br>
+所有除<span style="color: #ee8888;">箭头函数</span>外的函数都有一个属性 `prototype`，指向该函数的原型。 <br>
+对象的 `__proto__` 等价于该对象的构造函数的 `prototype`。 <br>
+
+访问对象的一个属性时：
+1. 对象上存在该属性，直接返回对应属性的值
+2. 对象上不存在该属性，则访问对象的原型。如果原型上存在该属性，返回原型中对应属性的值，否则继续访问原型的原型，直到遇到 `null`，返回 `undefined`
+
+几个例子：
+``` js
+const f = function() {}
+console.log(f.prototype === f.constructor.__proto__);  //true
+
+const f2 = () => {}
+console.log(f.prototype);  //undefined
+
+const o = new f();
+console.log(o.__proto__ === f.prototype);  //true
+f.prototype.a = 1;
+console.log(o.a);  //1
+```
+
 ## 编程题
 
 ### 克隆
