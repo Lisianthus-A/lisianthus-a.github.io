@@ -197,3 +197,120 @@ useInterval(() => {}, isRunning ? 1000 : null);
 //暂停定时器
 setIsRunning(false);
 ```
+
+## React-Redux
+> 好久没用了，把常用的 API 抄下来，方便以后要用的时候快速掌握。
+
+### 基础
+- store: 保存数据的容器，有以下 API：
+    - getState(): 获取当前 `state`
+    - dispatch(action): 发出 `action`
+    - subscribe(listener): 订阅 `store` 的变化，返回取消该订阅的函数。每次 `dispatch(action)` 将运行一次 `listener` 函数
+    - replaceReducer(nextReducer): 用 `nextReducer` 替换当前的 `reducer`
+- state: `store` 中保存的数据
+- action: 通知 `state` 改变，带有 `type` 字段的普通 JS 对象
+- reducer `(state: S, action: A) => S`: 接收当前 `state` 和 `action`，根据 `action` 来返回下一个 `state`
+- dispatch: 发出 `action`，调用方式：
+    - `dispatch({ type: 'ACTION_NAME' })`
+    - `dispatch(fn())`  这里 `fn` 为生成 `action` 的函数
+
+### createStore (redux)
+创建 `store` 的函数。
+
+`createStore(reducer, preloadedState?, enhancer?)`
+- reducer
+- preloadedState: 初始状态
+- enhancer: 中间件 `applyMiddleware(...middleware)`
+
+### combineReducers (redux)
+合并多个 `reducer`，返回合并后的 `reducer`。
+
+`combineReducers(reducers)`
+- reducers: 对象，各属性的值为 `reducer`
+
+例子：
+``` js
+const a = (state = 0, action) => {
+    switch(action.type) {
+        case 'A':
+            return state + 1;
+        default: 
+            return state;
+    }
+}
+const b = (state = 0, action) => {
+    switch(action.type) {
+        case 'B':
+            return state + 1;
+        default: 
+            return state;
+    }
+}
+
+const reducer = combineReducers({ a, b });  //合并 reducer
+const store = createStore(reducer);  //创建 store
+store.getState();  //{ a: 0, b: 0 }
+
+store.dispatch({ type: 'A' });  //发送 action
+store.getState();  //{ a: 1, b: 0 }
+```
+
+### Provider (react-redux)
+传递 `store`。
+
+``` jsx
+<Provider store={store}>
+    <App />
+</Provider>
+```
+
+### connect (react-redux)
+将组件与 `store` 关联起来，返回关联后的组件。
+
+`connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)`
+- mapStateToProps `(state, ownProps?) => Object`: 将 `state` 中的某些值映射到组件的 `props`
+- mapDispatchToProps `Object | (dispatch, ownProps?) => Object`: 包装 `dispatch`，映射到组件的 `props`
+- mergeProps `(stateProps, dispatchProps, ownProps) => props`: 将 `mapStateToProps` 和 `mapDispatchToProps` 提供的 `props` 进行包装，返回组件最终会收到的 `props`
+- options `Object`: 好像比较少用
+
+### 例子
+``` jsx
+//  index.js
+import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import Counter from './Counter';
+
+const reducer = (state = 0, action) => {
+    switch (action.type) {
+        case 'ADD':
+            return state + 1;
+        default:
+            return state;
+    }
+}
+const store = createStore(reducer);
+
+const App = () => {
+    <Provider store={store}>
+        <Counter />
+    </Provider>
+}
+
+//  Counter/index.js
+import React from 'react';
+import { connect } from 'react-redux';
+
+const Counter = ({ count, onClick: handleClick }) => (
+    <button onClick={handleClick}>count: {count}</button>
+);
+
+const mapStateToProps = (state, ownProps) => ({
+    count: state 
+});
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onClick: () => dispatch({ type: 'ADD' })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+```
