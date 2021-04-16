@@ -315,5 +315,31 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ```
 
-## dva
-Todo
+## DvaJS
+<div style="display: none;">Dva 官方文档有个很严重的问题，文档不全，只好自己摸索一下写笔记了。</div>
+
+### 用法
+创建一个 Dva 应用：
+``` js
+import UIComponent from './UIComponent';
+import dva, { connect } from 'dva';
+
+const app = dva();
+
+app.model(modelObject);  //注册 model
+
+app.router((history, app) => <UIComponent />);  //路由
+
+app.start('#root');  //挂载到 id = root 的 DOM 元素中
+```
+
+### model 对象
+Dva 是通过 `model` 来管理状态的，`model` 的一些配置： 
+- namespace: `model` 的命名空间，同时也是全局 `state` 上的属性
+- state: 初始值，优先级低于传给` dva(options)` 的 `options.initialState`
+- reducers `(state, action) => newState`:  根据 `action` 来返回新的 `state`
+- effects `*(action, effects) => void`: generator 函数，处理异步操作和业务逻辑，不直接修改 `state`
+    - `effects.put(action)`: 发出 `action`
+    - `effects.call(fn, params)`: 调用异步函数 `fn(params)`，取得函数返回值
+    - `effects.select(fn = (state) => any)`: 调用函数，取得函数返回值。`fn` 接收当前全局 `state`
+- subscriptions: 用于订阅一个数据源，然后根据需要 `dispatch` 相应的 `action`，暂时没用过
