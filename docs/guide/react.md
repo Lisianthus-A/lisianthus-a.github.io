@@ -316,15 +316,32 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ```
 
 ## DvaJS
-<div style="display: none;">Dva 官方文档有个很严重的问题，文档不全，只好自己摸索一下写笔记了。</div>
 
 ### 用法
 创建一个 Dva 应用：
 ``` js
-import UIComponent from './UIComponent';
+import UIComponent from './UIComponent';  //使用过 connect 的组件
 import dva, { connect } from 'dva';
 
 const app = dva();
+
+const modelObject = {
+    namespace: 'counter',
+    state: 0,
+    reducers: {
+        add(state, action) {
+            return state + action.payload;
+        }
+    },
+    effects: {
+        *asyncAdd5(action, { call }) {
+            const five = yield call(() => new Promise(resolve => {
+                setTimeout(resolve, 1000, 5);
+            }));
+            yield put({ type: 'add', payload: five });
+        }
+    }
+};
 
 app.model(modelObject);  //注册 model
 
