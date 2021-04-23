@@ -18,6 +18,7 @@ module.exports = {
                 // 'css',
                 'react',
                 'typescript',
+                'library',
                 'git',
                 'vuepress',
             ]
