@@ -37,7 +37,7 @@ const pause = async () => {
 }
 
 // 恢复播放
-const restart = () => {
+const restart = async () => {
     await audioContext.resume();
     return true;
 }
