@@ -20,10 +20,12 @@ fix: 修复 bug
 docs: 只修改了文档
 style: 对格式进行修改，不改变代码逻辑
 refactor: 代码重构，没有新增功能或修复 bug
-perf: 优化相关，如性能优化、提高用户体验等
-test: 测试用例
-chore: 改变构建流程，或者增加依赖项
+perf: 优化相关，不影响功能。如性能优化、提高用户体验等
+test: 测试用例相关
+build: 影响构建或依赖项修改
 revert: 版本回滚
+workflow: 工作流文件修改
+chore: 其他修改
 ```
 
 ### scope
