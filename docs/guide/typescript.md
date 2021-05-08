@@ -106,7 +106,7 @@ interface IOption {
 
 class Person {
     public name: string;  //公有  所有属性和方法默认公有
-    private age: number;  //私有  只能再该类内部访问
+    private age: number;  //私有  只能在该类内部访问
     protected gender: 'male' | 'female';  //受保护  与 private 相似，但可以被子类访问
     readonly id: number;  //只读  只能出现在属性声明或构造函数中
 
@@ -196,4 +196,82 @@ function loggingIdentity<T extends Lengwise>(param: T): T {
     console.log(param.length);
     return param;
 }
+```
+
+## 高级类型
+``` TypeScript
+interface A { a: number; }
+interface B { b: number; }
+
+// 交叉类型，类型必须符合多个类型的形状
+type C = A & B;
+const objC: C = { a: 1, b: 2 }; // ok
+const objC: C = { a: 1 };  // error
+
+// 联合类型，类型需要符合某个类型的形状
+function f(a: number | string) {}
+f(1);  // ok
+f('a');  // ok
+
+// never 类型，用来表示不会返回的函数的返回类型
+function f(): never {
+    while (true) {
+        //do something
+    }
+}
+
+// typeof 取得类型
+type T = { a: number };  // typeof T 为 { a: number }
+
+// 索引类型查询操作符 keyof 取得类型的索引
+interface I {
+    a: number;
+    b: number;
+}
+const a: keyof I = 'a';
+const c: keyof I = 'c';  // error
+
+// Record 快速创建类型
+// 类型 R1 等价于 { [key: string]: any }
+type R1 = Record<string, any>;
+// 类型 R2 等价于 { a: number; b: number; }
+type R2 = Record<'a' | 'b', number>;
+
+// Partial 将所有属性修改为可选
+// 类型 P 等价于: { a?: number; b?: number; }
+type P = Partial<I>;
+
+// Readonly 将所有属性修改为可选
+// 类型 R 等价于: { readonly a: number; readonly b: number; }
+type R = Readonly<I>;
+
+// Pick 选取多组属性生成类型
+// 类型 R 等价于: { a: number; b: number; }
+type P = Pick<I, 'a' | 'b'>;
+
+// Exclude<T, U> 从 T 中剔除可以赋值给 U 的类型
+// 类型 E 等价于 'b'
+type E = Exclude<'a' | 'b', 'a'>;
+
+// Extract<T, U> 提取 T 中可以赋值给 U 的类型
+// 类型 E 等价于 'a'
+type E = Extract<'a' | 'b', 'a'>;
+
+// NonNullable<T> 从 T 中去除 null 和 undefined
+// 类型 N 等价于 number | string
+type N = NonNullable<number | null | undefined | string>;
+
+// ReturnType<T> 获取函数返回值的类型
+// 类型 P 等价于 number
+function f(): number { return 1; }
+type R = ReturnType<typeof f>;
+
+// InstanceType<T> 获取构造函数类型的实例类型
+// 类型 I 等价于类型 C
+class C {}
+type I = InstanceType<typeof C>;
+
+// Omit<T, U> 去掉 T 中包含 U 的类型
+// 类型 O 等价于 { b: string; }
+type O = Omit<{ a: number; b: string }, 'a'>
 ```
