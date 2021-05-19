@@ -19,7 +19,7 @@ module.exports = {
                 'react',
                 'typescript',
                 'library',
-                'temp',
+                'functions',
                 'git',
                 'vuepress',
             ]
