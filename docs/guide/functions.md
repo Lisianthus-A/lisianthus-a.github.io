@@ -53,7 +53,7 @@ fetch('xxx.mp3')
 ```
 
 ### 图片转换
-``` js
+``` ts
 type ImageConvert = (
     img: HTMLImageElement | string,  // 图片元素或 base64 数据 或 url 地址
     width?: number,  // 目标宽度
