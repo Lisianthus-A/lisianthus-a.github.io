@@ -2,6 +2,23 @@
 sidebarDepth: 3
 ---
 # Git
+## 常用命令
+``` bash
+git add . 暂存文件
+git commit -m "message" 提交到本地仓库
+git push <remote> <branch> 将本地的 branch 分支推送到远程仓库
+git checkout -b <branch> 以当前分支为基础，另起一个 branch 分支
+git checkout <branch> 将本地代码版本变为 branch 分支的版本
+git merge <branch> 将 branch 分支合并到当前分支
+git branch -d <branch> 删除 branch 分支
+git branch -a 查看所有分支
+git branch -m "" 将当前分支重命名
+git pull --rebase 拉取远程仓库代码并变基
+git pull <remote> <branch> 合并远程仓库的 branch 分支到当前分支
+git cherry-pick <hash> 拾取哈希值为 hash 的提交到当前分支
+git reset HEAD^ 回退一个版本
+```
+
 ## 提交规范
 Angular 团队的 commit 规范格式如下：
 ``` 
