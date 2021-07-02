@@ -32,7 +32,7 @@ js 引擎在执行任务时，不会等待异步任务的结果返回，而是�
 
 事件队列分为微任务队列和宏任务队列，引擎会优先执行微任务，再执行宏任务。<br>
 宏任务包括：`setTimeout`、`setInterval` 等<br>
-微任务包括：`Promise`、`IntersectionObserver` `queueMicrotask` 等
+微任务包括：`Promise`、`IntersectionObserver`、`queueMicrotask` 等
 
 当 js 引擎完成当前的同步任务后，会清空 <span style="color: #ee8888;">所有</span> 微任务，然后执行 <span style="color: #ee8888;">一条</span> 宏任务，再清空微任务，不断循环。
 

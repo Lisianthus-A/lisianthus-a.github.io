@@ -7,7 +7,7 @@ sidebarDepth: 3
 1. 首先创建新文件夹，命名为 blog，在 blog 目录下运行 `npm init -y` 初始化。
 2. 安装 Vuepress:
 ``` sh
-npm install VuePress
+npm install vuepress
 ```
 3. 创建第一篇文档：
 ``` sh
