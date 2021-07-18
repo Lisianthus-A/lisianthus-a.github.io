@@ -52,16 +52,17 @@ fetch('xxx.mp3')
     .then(play);
 ```
 
-### 图片转换
+## 图片转换
 ``` ts
 type ImageConvert = (
     img: HTMLImageElement | string,  // 图片元素或 base64 数据 或 url 地址
+    download?: boolean,  // 是否下载
     width?: number,  // 目标宽度
     height?: number,  // 目标高度
 ) => Promise<string>;
 
 // 将图片转为目标高度和宽度的 base64 数据
-const imageConvert: ImageConvert = async (img, width, height) => {
+const imageConvert: ImageConvert = async (img, download, width, height) => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
@@ -86,6 +87,14 @@ const imageConvert: ImageConvert = async (img, width, height) => {
         ctx.drawImage(image, 0, 0, targetWidth, targetHeight);
     }
 
-    return canvas.toDataURL();
+    const base64Data = canvas.toDataURL();
+    if (download) {
+        const a = document.createElement('a');
+        a.href = base64Data;
+        a.download = 'image.png';
+        a.click();
+    }
+
+    return base64Data;
 }
 ```
