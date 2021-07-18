@@ -40,15 +40,15 @@ pageClass: custom-page-index #为该页添加一个名为custom-page-index的css
 footer: MIT Licensed | Copyright © 2020-present Lisianthus-A #页脚
 ---
 ```
-2. 在 `blog/docs/.vuepress` 目录新建文件夹，命名为 `public`，并添加 `favicon.jpg` 和 `logo.jpg` 文件作为网站 icon 和 Logo。
-3. 在 `blog/docs/.vuepress` 目录新建文件夹，命名为 `styles`，并在 `blog/docs/.vuepress/styles` 目录下新建文件 `index.styl`，可选择性地覆盖页面 CSS 类，把主页图片设置成圆角：
+2. 在 `blog/docs` 目录下新建一个文件夹，命名为 `.vuepress`。
+3. 在 `blog/docs/.vuepress` 目录新建文件夹，命名为 `public`，并添加 `favicon.jpg` 和 `logo.jpg` 文件作为网站 icon 和 Logo。
+4. 在 `blog/docs/.vuepress` 目录新建文件夹，命名为 `styles`，并在 `blog/docs/.vuepress/styles` 目录下新建文件 `index.styl`，可选择性地覆盖页面 CSS 类，把主页图片设置成圆角：
 ``` css
 /* blog/docs/.vuepress/styles/index.styl */
 .custom-page-index .hero img {
     border-radius: 50%;
 }
 ```
-4. 在 `blog/docs` 目录下新建一个文件夹，命名为 `.vuepress`。
 5. 在 `blog/docs/.vuepress` 目录下新建配置文件 `config.js`，内容如下：
 ``` JavaScript
 module.exports = {
