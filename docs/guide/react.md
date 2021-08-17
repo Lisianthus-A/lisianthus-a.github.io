@@ -360,11 +360,14 @@ Dva 是通过 `model` 来管理状态的，`model` 的一些配置：
     - `effects.call(fn, params)`: 调用异步函数 `fn(params)`，取得函数返回值
     - `effects.select(fn = (state) => any)`: 调用函数，取得函数返回值。`fn` 接收当前全局 `state`
 - subscriptions: 用于订阅一个数据源，然后根据需要 `dispatch` 相应的 `action`，暂时没用过
-<!-- ## Next.js
+
+<!--
+
+## Next.js
 ### 安装与运行
 ``` sh
-npx create-next-app nextjs-blog --use-npm --example "https://github.com/vercel/next-learn-starter/tree/master/learn-starter"
-cd nextjs-blog
+npx create-next-app my-next-app
+cd my-next-app
 npm run dev
 ```
 
@@ -377,16 +380,18 @@ module.exports = {
 ```
 
 #### 启用 TypeScript
-在项目根目录添加 tsconfig.json 和 next-env.d.ts 文件，然后执行以下命令：
+安装时输入 `--ts` 选项：
 ``` sh
-npm i --save-dev typescript @types/react @types/node
+npx create-next-app --ts my-next-app
 ```
-在 Next.js 编译时会自动给这两个文件加上内容。
 
 ### 路由
 
 
 ### Next 组件
+#### Head 组件
+
+
 #### Link
 Link 组件使用 JavaScript 实现的 `客户端导航`，比浏览器的默认导航更快，而且不会重载整个页面。
 
@@ -423,4 +428,6 @@ import Image from 'next/image';
     - responsive: 视窗比图片小时，图片尺寸缩小；视窗比图片大时，尺寸扩大。
     - fill: 图片铺满父元素，尺寸由父元素决定。
 - loader (可选) `(src, width, quality) => string`: 用于解析 `src` 的函数，相当于把 `src` 属性用 `loader` 进行了一次替换。
-- quality (可选) `number | string`: 图片质量。可设置为 1 ~ 100，默认值为 75。 -->
+- quality (可选) `number | string`: 图片质量。可设置为 1 ~ 100，默认值为 75。 
+
+-->
