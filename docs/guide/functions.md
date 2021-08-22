@@ -27,7 +27,7 @@ const play = async (arrayBuffer: ArrayBuffer, offset: number = 0): Promise<void>
     // 是否循环播放
     source.loop = true;
 
-    source.start(0, offset);
+    source.start(audioContext.currentTime, offset);
 }
 
 // 暂停播放
