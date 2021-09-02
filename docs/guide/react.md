@@ -387,10 +387,34 @@ npx create-next-app --ts my-next-app
 
 ### 路由
 
+### 样式
+#### 全局样式
+在 pages 目录下添加文件 _app.js，引入全局样式：
+``` js
+import '../styles/global.css';
+
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+``` 
+
+#### 开启 CSS 模块化
+样式文件以 .module.css 和 .module.scss 结尾即可。 
 
 ### Next 组件
-#### Head 组件
+#### Head
+类似 head 标签，组件内 key 相同的标签将会合并。
 
+``` js
+import Head from 'next/head';
+
+<Head>
+    <title>My Title</title>
+    {/* 这两个 meta 会合并，只出现 content 为 title2 的标签 */}
+    <meta property="og:title" content="title1" key="title" />
+    <meta property="og:title" content="title2" key="title" />
+</Head>
+```
 
 #### Link
 Link 组件使用 JavaScript 实现的 `客户端导航`，比浏览器的默认导航更快，而且不会重载整个页面。
