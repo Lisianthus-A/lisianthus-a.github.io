@@ -13,7 +13,14 @@ let currentSource: AudioBufferSourceNode | null = null;
 // 播放音频
 const play = async (arrayBuffer: ArrayBuffer, offset: number = 0): Promise<void> => {
     // 停止当前音频
-    currentSource && currentSource.disconnect();
+    if (currentSource) {
+        currentSource.onended = null;
+        // 必须 stop 掉当前音频
+        // 否则就算 disconnect 了还是会继续播放
+        // 占用内存
+        currentSource.stop(0);
+        currentSource.disconnect();
+    }
 
     // 创建 Source
     const source = audioContext.createBufferSource();
@@ -25,7 +32,7 @@ const play = async (arrayBuffer: ArrayBuffer, offset: number = 0): Promise<void>
     source.buffer = audioBuffer;
 
     // 是否循环播放
-    source.loop = true;
+    // source.loop = true;
 
     source.start(audioContext.currentTime, offset);
 }
