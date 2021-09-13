@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.jpg">
     <meta name="description" content="Be Happy To">
     
-    <link rel="preload" href="/assets/css/0.styles.8cc5d6be.css" as="style"><link rel="preload" href="/assets/js/app.f68a9b7e.js" as="script"><link rel="preload" href="/assets/js/2.56848efb.js" as="script"><link rel="preload" href="/assets/js/10.0ba1938e.js" as="script"><link rel="prefetch" href="/assets/js/11.92dda698.js"><link rel="prefetch" href="/assets/js/12.3b23a8c7.js"><link rel="prefetch" href="/assets/js/13.9f0f2771.js"><link rel="prefetch" href="/assets/js/14.0faf2bdc.js"><link rel="prefetch" href="/assets/js/15.d3a39e9c.js"><link rel="prefetch" href="/assets/js/16.b331e0f4.js"><link rel="prefetch" href="/assets/js/3.61b92107.js"><link rel="prefetch" href="/assets/js/4.a008afce.js"><link rel="prefetch" href="/assets/js/5.bccffdd6.js"><link rel="prefetch" href="/assets/js/6.7f301b6a.js"><link rel="prefetch" href="/assets/js/7.be0ef413.js"><link rel="prefetch" href="/assets/js/8.0f198f81.js"><link rel="prefetch" href="/assets/js/9.472eb2d4.js">
+    <link rel="preload" href="/assets/css/0.styles.8cc5d6be.css" as="style"><link rel="preload" href="/assets/js/app.b745f256.js" as="script"><link rel="preload" href="/assets/js/2.9e6f6751.js" as="script"><link rel="preload" href="/assets/js/10.20a86463.js" as="script"><link rel="prefetch" href="/assets/js/11.77f685d9.js"><link rel="prefetch" href="/assets/js/12.1c84fcbb.js"><link rel="prefetch" href="/assets/js/13.25f82337.js"><link rel="prefetch" href="/assets/js/14.2afedbf8.js"><link rel="prefetch" href="/assets/js/15.34cba417.js"><link rel="prefetch" href="/assets/js/16.6b92078b.js"><link rel="prefetch" href="/assets/js/3.a7f2eff0.js"><link rel="prefetch" href="/assets/js/4.88be3fa4.js"><link rel="prefetch" href="/assets/js/5.b955c541.js"><link rel="prefetch" href="/assets/js/6.cc9f7abb.js"><link rel="prefetch" href="/assets/js/7.4a427e63.js"><link rel="prefetch" href="/assets/js/8.6e8431d8.js"><link rel="prefetch" href="/assets/js/9.304a1739.js">
     <link rel="stylesheet" href="/assets/css/0.styles.8cc5d6be.css">
   </head>
   <body>
@@ -32,7 +32,14 @@ gainNode<span class="token punctuation">.</span><span class="token function">con
 <span class="token comment">// 播放音频</span>
 <span class="token keyword">const</span> play <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>arrayBuffer<span class="token operator">:</span> ArrayBuffer<span class="token punctuation">,</span> offset<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token operator">&gt;</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     <span class="token comment">// 停止当前音频</span>
-    currentSource <span class="token operator">&amp;&amp;</span> currentSource<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>currentSource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        currentSource<span class="token punctuation">.</span>onended <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token comment">// 必须 stop 掉当前音频</span>
+        <span class="token comment">// 否则就算 disconnect 了还是会继续播放</span>
+        <span class="token comment">// 占用内存</span>
+        currentSource<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        currentSource<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
     <span class="token comment">// 创建 Source</span>
     <span class="token keyword">const</span> source <span class="token operator">=</span> audioContext<span class="token punctuation">.</span><span class="token function">createBufferSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -44,7 +51,7 @@ gainNode<span class="token punctuation">.</span><span class="token function">con
     source<span class="token punctuation">.</span>buffer <span class="token operator">=</span> audioBuffer<span class="token punctuation">;</span>
 
     <span class="token comment">// 是否循环播放</span>
-    source<span class="token punctuation">.</span>loop <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token comment">// source.loop = true;</span>
 
     source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>audioContext<span class="token punctuation">.</span>currentTime<span class="token punctuation">,</span> offset<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -112,7 +119,7 @@ gainNode<span class="token punctuation">.</span><span class="token function">con
 
     <span class="token keyword">return</span> base64Data<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">8/22/2021, 12:28:46 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">9/13/2021, 4:11:51 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/guide/library.html" class="prev">
         库
@@ -121,6 +128,6 @@ gainNode<span class="token punctuation">.</span><span class="token function">con
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.f68a9b7e.js" defer></script><script src="/assets/js/2.56848efb.js" defer></script><script src="/assets/js/10.0ba1938e.js" defer></script>
+    <script src="/assets/js/app.b745f256.js" defer></script><script src="/assets/js/2.9e6f6751.js" defer></script><script src="/assets/js/10.20a86463.js" defer></script>
   </body>
 </html>
