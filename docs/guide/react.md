@@ -1,6 +1,3 @@
----
-sidebarDepth: 3
----
 # React
 ## 使用 Hooks API
 ### useState
@@ -454,4 +451,27 @@ import Image from 'next/image';
 - loader (可选) `(src, width, quality) => string`: 用于解析 `src` 的函数，相当于把 `src` 属性用 `loader` 进行了一次替换。
 - quality (可选) `number | string`: 图片质量。可设置为 1 ~ 100，默认值为 75。 
 
+### 获取数据
+
+#### getStaticProps
+在页面文件中 `export` 的 `getStaticProps` 函数，next 会在每次构建时调用它，给 UI 组件提供 Props
+``` js
+
+export async function getStaticProps(context) {
+    const {
+        params,  // 路由参数，若页面文件为 [id].js，params 的值将会是 { id: ... }
+        locale,  // 语言设置
+    } = context;
+
+    // 异步获取数据
+    const data = await fetch('xxx').then(res => res.json());
+
+    return {
+        props: { data },  // 提供给 UI 组件的 props
+        // revalidate: 10,  // 每 10 秒最多生成一次 html，用于缓存
+        revalidate: false,  // 缓存构建时生成的 html，直到下次构建
+        notFound: false  // 如果为 true 会返回 404 页面
+    };
+}
+```
 -->

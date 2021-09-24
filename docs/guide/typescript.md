@@ -1,6 +1,3 @@
----
-sidebarDepth: 3
----
 # TypeScript
 > 大部分参考于 [TypeScript 入门教程](https://ts.xcatliu.com/)
 ## 基本类型

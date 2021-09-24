@@ -1,0 +1,18 @@
+:root {
+    scroll-behavior: smooth;
+}
+
+html.dark {
+    .sidebar::-webkit-scrollbar-thumb {
+        background-color: #386d55;
+    }
+    
+}
+
+.custom-page-index .hero img {
+    border-radius: 50%;
+}
+
+.theme-default-content:not(.custom) {
+    max-width: 840px;
+}

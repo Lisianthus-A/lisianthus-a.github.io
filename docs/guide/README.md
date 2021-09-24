@@ -1,6 +1,3 @@
----
-sidebarDepth: 3
----
 # JavaScript
 
 ## 正则
@@ -53,7 +50,7 @@ new Promise(resolve => {
     });
 });
 ```
-选中区域查看打印循序：<span style="color: #fff; border: 1px dashed #000;">1 4 5 2 3 6</span>
+选中区域查看打印循序：<span style="color: #000; border-radius: 4px; background-color: #000;">1 4 5 2 3 6</span>
 
 ## 原型链
 所有除 `null` 外的对象都有一个属性 `__proto__`，指向该对象的原型。<br>

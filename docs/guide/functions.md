@@ -1,6 +1,3 @@
----
-sidebarDepth: 3
----
 # 部分功能实现
 ## AudioContext 播放音频
 

@@ -1,8 +1,6 @@
----
-sidebarDepth: 3
----
 # VuePress
 ## 使用 VuePress 搭建博客
+> 以下内容适用于 vuepress@1.7.1
 ### Hello, World
 1. 首先创建新文件夹，命名为 blog，在 blog 目录下运行 `npm init -y` 初始化。
 2. 安装 Vuepress:

@@ -1,6 +1,3 @@
----
-sidebarDepth: 3
----
 # Git
 ## 常用命令
 ``` bash
