@@ -12,7 +12,7 @@ const [state, setState] = useState(0);
 与 `class` 组件的 `this.setState` 不同，`useState` 返回的 `setState` 方法不会合并对象：
 ``` js
 const [state, setState] = useState({ a: 1, b: 2 });
-setState({ a: 2 });  //state 会变成 { a: 2 } 而不是 { a: 2, b: 2 }
+setState({ a: 2 });  // state 会变成 { a: 2 } 而不是 { a: 2, b: 2 }
 ```
 
 ### useEffect
@@ -44,10 +44,10 @@ useEffect(() => {
 
 用法：
 ``` js
-export const CountContext = React.createContext();  //写在外部，可以被外界组件引入
+export const CountContext = React.createContext();  // 写在外部，可以被外界组件引入
 
 const Parent = () => {
-    const [count, setCount] = useState(0);  //使用 state 控制 Context 的值
+    const [count, setCount] = useState(0);  // 使用 state 控制 Context 的值
 
     return (
         <CountContext.Provider value={count}>
@@ -77,7 +77,7 @@ const Child = () => {
 用法：
 ``` js
 const handleClick = useCallback(() => {
-    //do something
+    // do something
 }, []);
 ```
 第一个参数用于执行的函数；
@@ -91,7 +91,7 @@ const handleClick = useCallback(() => {
 ``` js
 const id = useMemo(() => {
     let result = null;
-    //繁重的计算
+    // 繁重的计算
     return result;
 }, []);
 ```
@@ -120,7 +120,7 @@ const Parent = () => {
 
     useEffect(() => {
         const div = childRef.current;
-        console.log(div.classList[0]);  //child
+        console.log(div.classList[0]);  // child
     }, []);
 
     return (
@@ -150,7 +150,7 @@ const Child = React.forwardRef((props, ref) => {
 ### useSetState
 由于官方 API `useState` 不会合并对象，可以写一个支持合并对象的 `useSetState` 方法：
 ``` js
-//定义
+// 定义
 const useSetState = (initialState = {}) => {
     const [state, saveState] = useState(initialState);
     const setState = useCallback((newState) => {
@@ -160,13 +160,13 @@ const useSetState = (initialState = {}) => {
 }
 
 const [state, setState] = useSetState({ a: 1, b: 2 });
-setState({ a: 2 });  //state 变为 { a: 2, b: 2}
+setState({ a: 2 });  // state 变为 { a: 2, b: 2}
 ```
 
 ### useInterval
 将 `setInterval` 进行包装，自动清除旧的定时器，并且可以通过 `state` 来开始、暂停定时器。
 ``` js
-//定义
+// 定义
 const useInterval = (callback, delay) => {
     const savedCallback = useRef();
 
@@ -189,9 +189,9 @@ const useInterval = (callback, delay) => {
 
 const [isRunning, setIsRunning] = useState(true);
 
-//定时器启动
+// 定时器启动
 useInterval(() => {}, isRunning ? 1000 : null);
-//暂停定时器
+// 暂停定时器
 setIsRunning(false);
 ```
 
@@ -244,12 +244,12 @@ const b = (state = 0, action) => {
     }
 }
 
-const reducer = combineReducers({ a, b });  //合并 reducer
-const store = createStore(reducer);  //创建 store
-store.getState();  //{ a: 0, b: 0 }
+const reducer = combineReducers({ a, b });  // 合并 reducer
+const store = createStore(reducer);  // 创建 store
+store.getState();  // { a: 0, b: 0 }
 
-store.dispatch({ type: 'A' });  //发送 action
-store.getState();  //{ a: 1, b: 0 }
+store.dispatch({ type: 'A' });  // 发送 action
+store.getState();  // { a: 1, b: 0 }
 ```
 
 ### Provider (react-redux)
@@ -317,7 +317,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ### 用法
 创建一个 Dva 应用：
 ``` js
-import UIComponent from './UIComponent';  //使用过 connect 的组件
+import UIComponent from './UIComponent';  // 使用过 connect 的组件
 import dva, { connect } from 'dva';
 
 const app = dva();
@@ -340,11 +340,11 @@ const modelObject = {
     }
 };
 
-app.model(modelObject);  //注册 model
+app.model(modelObject);  // 注册 model
 
-app.router((history, app) => <UIComponent />);  //路由
+app.router((history, app) => <UIComponent />);  // 路由
 
-app.start('#root');  //挂载到 id = root 的 DOM 元素中
+app.start('#root');  // 挂载到 id = root 的 DOM 元素中
 ```
 
 ### model 对象

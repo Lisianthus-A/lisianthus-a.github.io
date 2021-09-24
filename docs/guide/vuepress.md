@@ -50,7 +50,7 @@ footer: MIT Licensed | Copyright © 2020-present Lisianthus-A #页脚
 5. 在 `blog/docs/.vuepress` 目录下新建配置文件 `config.js`，内容如下：
 ``` js
 module.exports = {
-    title: 'Lisianthus的小站',  //标题
+    title: 'Lisianthus的小站',  // 标题
     description: 'Be happy to',
     head: [ // 注入到当前页面的 HTML <head> 中的标签
         ['link', { rel: 'icon', href: '/favicon.jpg' }], // 增加一个自定义的 favicon(网页标签的图标)
@@ -59,19 +59,19 @@ module.exports = {
         lineNumbers: false // 代码块显示行号
     },
     themeConfig: {
-        nav: [  //右上角导航
+        nav: [  // 右上角导航
             { text: '主页', link: '/' },
             { text: '笔记', link: '/guide/index.html' }
         ],
-        sidebar: {  //侧边栏
-            '/guide/': [  //guide页面的配置
-                ['', 'HTML'],  //README.md对应页面显示为HTML
-                'vuepress'  //字符串对应guide目录下的.md文件
+        sidebar: {  // 侧边栏
+            '/guide/': [  // guide页面的配置
+                ['', 'HTML'],  // README.md对应页面显示为HTML
+                'vuepress'  // 字符串对应guide目录下的.md文件
             ]
         },
-        sidebarDepth: 2,  //侧边栏导航深度
-        repo: 'Lisianthus-A/Lisianthus-A.github.io',  //仓库地址
-        smoothScroll: true,  //平滑滚动
+        sidebarDepth: 2,  // 侧边栏导航深度
+        repo: 'Lisianthus-A/Lisianthus-A.github.io',  // 仓库地址
+        smoothScroll: true,  // 平滑滚动
         lastUpdated: '最后更新时间'
     }
 }

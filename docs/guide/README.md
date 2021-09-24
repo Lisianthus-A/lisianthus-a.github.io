@@ -7,7 +7,7 @@
 ``` js
 const regex = /1/g;
 for (let i = 0; i < 4; i++) {
-    console.log(regex.test('123'));  //true false true false
+    console.log(regex.test('123'));  // true false true false
 }
 ```
 `test` 返回值不同是因为单个实例 + 全局匹配。
@@ -19,7 +19,7 @@ for (let i = 0; i < 4; i++) {
 ``` js
 const regex = /1/g;
 for (let i = 0; i < 4; i++) {
-    console.log(regex.test('123'));  //true true true true
+    console.log(regex.test('123'));  // true true true true
     regex.lastIndex = 0;
 }
 ```
@@ -64,22 +64,22 @@ new Promise(resolve => {
 几个例子：
 ``` js
 const f = function() {}
-console.log(f.prototype === f.constructor.__proto__);  //true
+console.log(f.prototype === f.constructor.__proto__);  // true
 
 const f2 = () => {}
-console.log(f.prototype);  //undefined
+console.log(f.prototype);  // undefined
 
 const o = new f();
-console.log(o.__proto__ === f.prototype);  //true
+console.log(o.__proto__ === f.prototype);  // true
 f.prototype.a = 1;
-console.log(o.a);  //1
+console.log(o.a);  // 1
 ```
 
 ## 编程题
 
 ### 克隆
 ``` js
-//浅克隆
+// 浅克隆
 const clone = target => {
     if (target === null) {
         return null;
@@ -88,10 +88,10 @@ const clone = target => {
     return typeof target === 'object' ? { ...target } : target;
 }
 
-//深克隆
+// 深克隆
 const deepClone = (target) => {
 
-    //克隆对象
+    // 克隆对象
     const cloneObject = (obj) => {
         const clonedObj = {};
         cloned.set(obj, clonedObj);
@@ -103,10 +103,10 @@ const deepClone = (target) => {
         return clonedObj;
     }
 
-    //克隆数组
+    // 克隆数组
     const cloneArray = (array) => array.map(item => getClonedValue(item));
 
-    //克隆 Set
+    // 克隆 Set
     const cloneSet = (set) => {
         const s = new Set();
         for (const value of set) {
@@ -116,7 +116,7 @@ const deepClone = (target) => {
         return s;
     }
 
-    //克隆 Map
+    // 克隆 Map
     const cloneMap = (map) => {
         const m = new Map();
         for (const [key, value] of map.entries()) {
@@ -127,14 +127,14 @@ const deepClone = (target) => {
         return m;
     }
 
-    //克隆正则
+    // 克隆正则
     const cloneRegExp = (regex) => {
         const regexStr = regex.toString();
         const flags = regexStr.slice(regexStr.lastIndexOf('/') + 1);
         return new RegExp(regex.source, flags);
     }
 
-    //获取克隆后的值
+    // 获取克隆后的值
     const getClonedValue = (value) => {
         const type = Object.prototype.toString.call(value);
         switch (type) {
@@ -143,22 +143,22 @@ const deepClone = (target) => {
             case '[object String]':
             case '[object Null]':
             case '[object Undefined]':
-            case '[object Function]':  //这 6 种类型直接返回
+            case '[object Function]':  // 这 6 种类型直接返回
                 return value;
-            case '[object Array]':  //数组
+            case '[object Array]':  // 数组
                 return cloneArray(value);
-            case '[object Object]':  //对象
+            case '[object Object]':  // 对象
                 return cloned.get(value) || cloneObject(value);
-            case '[object Set]':  //Set
+            case '[object Set]':  // Set
                 return cloneSet(value);
-            case '[object Map]':  //Map
+            case '[object Map]':  // Map
                 return cloneMap(value);
-            case '[object RegExp]':  //正则表达式
+            case '[object RegExp]':  // 正则表达式
                 return cloneRegExp(value);
         }
     }
 
-    const cloned = new Map();  //克隆过的对象，处理嵌套调用
+    const cloned = new Map();  // 克隆过的对象，处理嵌套调用
     return getClonedValue(target);
 }
 ```
@@ -196,8 +196,8 @@ const throttle = (fn, time) => {
 
 ### 实现 add(1, 2)(3)(4)
 ``` js
-//add(1, 2)(3)() --> 6
-//add(1)(2)(3, 4, 5)() --> 15
+// add(1, 2)(3)() --> 6
+// add(1)(2)(3, 4, 5)() --> 15
 const add = (...args) => {
     const sum = args.reduce((prev, curr) => prev + curr);
     return (...nextArgs) => nextArgs.length > 0 ? add(sum, ...nextArgs) : sum;

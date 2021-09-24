@@ -20,9 +20,9 @@ git reset HEAD^ 回退一个版本
 Angular 团队的 commit 规范格式如下：
 ``` 
 type(scope): subject
-//空行
+// 空行
 body
-//空行
+// 空行
 footer
 ```
 
