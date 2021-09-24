@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="generator" content="VuePress 2.0.0-beta.26">
     <link rel="icon" href="/favicon.jpg"><title>VuePress | Lisianthus的小站</title><meta name="description" content="Be Happy To">
-    <link rel="preload" href="/assets/js/runtime~app.40b5c832.js" as="script"><link rel="preload" href="/assets/css/styles.fca8fcc8.css" as="style"><link rel="preload" href="/assets/js/812.2d94cbe3.js" as="script"><link rel="preload" href="/assets/js/app.f4444d3b.js" as="script">
+    <link rel="preload" href="/assets/js/runtime~app.f7286665.js" as="script"><link rel="preload" href="/assets/css/styles.fca8fcc8.css" as="style"><link rel="preload" href="/assets/js/812.2d94cbe3.js" as="script"><link rel="preload" href="/assets/js/app.4b1c3578.js" as="script">
     <link rel="stylesheet" href="/assets/css/styles.fca8fcc8.css">
   </head>
   <body>
@@ -31,7 +31,7 @@ footer: MIT Licensed | Copyright © 2020-present Lisianthus-A #页脚
     <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre></div><ol start="5"><li>在 <code>blog/docs/.vuepress</code> 目录下新建配置文件 <code>config.js</code>，内容如下：</li></ol><div class="language-javascript ext-js"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-    title<span class="token operator">:</span> <span class="token string">&#39;Lisianthus的小站&#39;</span><span class="token punctuation">,</span>  <span class="token comment">//标题</span>
+    title<span class="token operator">:</span> <span class="token string">&#39;Lisianthus的小站&#39;</span><span class="token punctuation">,</span>  <span class="token comment">// 标题</span>
     description<span class="token operator">:</span> <span class="token string">&#39;Be happy to&#39;</span><span class="token punctuation">,</span>
     head<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token comment">// 注入到当前页面的 HTML &lt;head&gt; 中的标签</span>
         <span class="token punctuation">[</span><span class="token string">&#39;link&#39;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> rel<span class="token operator">:</span> <span class="token string">&#39;icon&#39;</span><span class="token punctuation">,</span> href<span class="token operator">:</span> <span class="token string">&#39;/favicon.jpg&#39;</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 增加一个自定义的 favicon(网页标签的图标)</span>
@@ -40,19 +40,19 @@ footer: MIT Licensed | Copyright © 2020-present Lisianthus-A #页脚
         lineNumbers<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token comment">// 代码块显示行号</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     themeConfig<span class="token operator">:</span> <span class="token punctuation">{</span>
-        nav<span class="token operator">:</span> <span class="token punctuation">[</span>  <span class="token comment">//右上角导航</span>
+        nav<span class="token operator">:</span> <span class="token punctuation">[</span>  <span class="token comment">// 右上角导航</span>
             <span class="token punctuation">{</span> text<span class="token operator">:</span> <span class="token string">&#39;主页&#39;</span><span class="token punctuation">,</span> link<span class="token operator">:</span> <span class="token string">&#39;/&#39;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
             <span class="token punctuation">{</span> text<span class="token operator">:</span> <span class="token string">&#39;笔记&#39;</span><span class="token punctuation">,</span> link<span class="token operator">:</span> <span class="token string">&#39;/guide/index.html&#39;</span> <span class="token punctuation">}</span>
         <span class="token punctuation">]</span><span class="token punctuation">,</span>
-        sidebar<span class="token operator">:</span> <span class="token punctuation">{</span>  <span class="token comment">//侧边栏</span>
-            <span class="token string">&#39;/guide/&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>  <span class="token comment">//guide页面的配置</span>
-                <span class="token punctuation">[</span><span class="token string">&#39;&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;HTML&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment">//README.md对应页面显示为HTML</span>
-                <span class="token string">&#39;vuepress&#39;</span>  <span class="token comment">//字符串对应guide目录下的.md文件</span>
+        sidebar<span class="token operator">:</span> <span class="token punctuation">{</span>  <span class="token comment">// 侧边栏</span>
+            <span class="token string">&#39;/guide/&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>  <span class="token comment">// guide页面的配置</span>
+                <span class="token punctuation">[</span><span class="token string">&#39;&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;HTML&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment">// README.md对应页面显示为HTML</span>
+                <span class="token string">&#39;vuepress&#39;</span>  <span class="token comment">// 字符串对应guide目录下的.md文件</span>
             <span class="token punctuation">]</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        sidebarDepth<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>  <span class="token comment">//侧边栏导航深度</span>
-        repo<span class="token operator">:</span> <span class="token string">&#39;Lisianthus-A/Lisianthus-A.github.io&#39;</span><span class="token punctuation">,</span>  <span class="token comment">//仓库地址</span>
-        smoothScroll<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment">//平滑滚动</span>
+        sidebarDepth<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>  <span class="token comment">// 侧边栏导航深度</span>
+        repo<span class="token operator">:</span> <span class="token string">&#39;Lisianthus-A/Lisianthus-A.github.io&#39;</span><span class="token punctuation">,</span>  <span class="token comment">// 仓库地址</span>
+        smoothScroll<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment">// 平滑滚动</span>
         lastUpdated<span class="token operator">:</span> <span class="token string">&#39;最后更新时间&#39;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
@@ -97,7 +97,7 @@ ssh-keygen -t rsa -b <span class="token number">4096</span> -C yourmail@mail.com
         <span class="token key atrule">ACTIONS_DEPLOY_KEY</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span>secrets.publish<span class="token punctuation">}</span><span class="token punctuation">}</span>
         <span class="token key atrule">PUBLISH_BRANCH</span><span class="token punctuation">:</span> gh<span class="token punctuation">-</span>page
         <span class="token key atrule">PUBLISH_DIR</span><span class="token punctuation">:</span> docs/.vuepress/dist
-</code></pre></div><p>现在每次 push 到 main 分支后，github 都会自动将新的内容部署到 Git Page 了。</p><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">最后更新时间: </span><span class="meta-item-info">9/24/2021, 9:33:38 AM</span></div><!----></footer><nav class="page-nav"><p class="inner"><span class="prev"> ← <a href="/guide/git.html" class="nav-link" aria-label="Git"><!--[--><!--]--> Git <!--[--><!--]--></a></span><!----></p></nav><!--[--><!--]--></main><!--]--></div><!----><!--]--></div>
-    <script src="/assets/js/runtime~app.40b5c832.js" defer></script><script src="/assets/js/812.2d94cbe3.js" defer></script><script src="/assets/js/app.f4444d3b.js" defer></script>
+</code></pre></div><p>现在每次 push 到 main 分支后，github 都会自动将新的内容部署到 Git Page 了。</p><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">最后更新时间: </span><span class="meta-item-info">9/24/2021, 9:49:36 AM</span></div><!----></footer><nav class="page-nav"><p class="inner"><span class="prev"> ← <a href="/guide/git.html" class="nav-link" aria-label="Git"><!--[--><!--]--> Git <!--[--><!--]--></a></span><!----></p></nav><!--[--><!--]--></main><!--]--></div><!----><!--]--></div>
+    <script src="/assets/js/runtime~app.f7286665.js" defer></script><script src="/assets/js/812.2d94cbe3.js" defer></script><script src="/assets/js/app.4b1c3578.js" defer></script>
   </body>
 </html>
