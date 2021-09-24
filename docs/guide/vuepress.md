@@ -48,7 +48,7 @@ footer: MIT Licensed | Copyright © 2020-present Lisianthus-A #页脚
 }
 ```
 5. 在 `blog/docs/.vuepress` 目录下新建配置文件 `config.js`，内容如下：
-``` JavaScript
+``` js
 module.exports = {
     title: 'Lisianthus的小站',  //标题
     description: 'Be happy to',
