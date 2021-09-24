@@ -62,39 +62,50 @@ fetch('xxx.mp3')
 ## 图片转换
 ``` ts
 type ImageConvert = (
-    img: HTMLImageElement | string,  // 图片元素或 base64 数据 或 url 地址
-    download?: boolean,  // 是否下载
-    width?: number,  // 目标宽度
-    height?: number,  // 目标高度
+    /**
+     * 图片元素或 base64 数据 或 url 地址
+     */
+    img: HTMLImageElement | string,
+    /**
+     * 是否下载转换后的图片
+     */
+    download?: boolean,
+    /**
+     * 目标宽度
+     */
+    width?: number,
+    /**
+     * 目标高度
+     */
+    height?: number,
 ) => Promise<string>;
 
 // 将图片转为目标高度和宽度的 base64 数据
 const imageConvert: ImageConvert = async (img, download, width, height) => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
 
     if (img instanceof HTMLImageElement) {
-        const targetWidth = width || img.width;
-        const targetHeight = height || img.height;
-        canvas.width = targetWidth;
-        canvas.height = targetHeight;
-        ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+        image.src = img.src;
     } else {
-        const image = new Image();
         image.src = img;
-        await new Promise<void>(resolve => {
-            image.onload = function () {
-                resolve();
-            }
-        });
-        const targetWidth = width || image.width;
-        const targetHeight = height || image.height;
-        canvas.width = targetWidth;
-        canvas.height = targetHeight;
-        ctx.drawImage(image, 0, 0, targetWidth, targetHeight);
     }
 
-    const base64Data = canvas.toDataURL();
+    await new Promise<void>(resolve => {
+        image.onload = () => {
+            resolve();
+        };
+    });
+
+    const targetWidth = width || image.width;
+    const targetHeight = height || image.height;
+    canvas.width = targetWidth;
+    canvas.height = targetHeight;
+    ctx.drawImage(image, 0, 0, targetWidth, targetHeight);
+
+    const base64Data = canvas.toDataURL('image/png');
     if (download) {
         const a = document.createElement('a');
         a.href = base64Data;
