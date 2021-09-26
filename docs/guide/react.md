@@ -358,8 +358,6 @@ Dva 是通过 `model` 来管理状态的，`model` 的一些配置：
     - `effects.select(fn = (state) => any)`: 调用函数，取得函数返回值。`fn` 接收当前全局 `state`
 - subscriptions: 用于订阅一个数据源，然后根据需要 `dispatch` 相应的 `action`，暂时没用过
 
-<!--
-
 ## Next.js
 ### 安装与运行
 ``` sh
@@ -382,7 +380,7 @@ module.exports = {
 npx create-next-app --ts my-next-app
 ```
 
-### 路由
+<!-- ### 路由 -->
 
 ### 样式
 #### 全局样式
@@ -453,10 +451,11 @@ import Image from 'next/image';
 
 ### 获取数据
 
-#### getStaticProps
-在页面文件中 `export` 的 `getStaticProps` 函数，next 会在每次构建时调用它，给 UI 组件提供 Props
-``` js
+#### getStaticProps (静态生成)
+在页面文件中 `export` 的 `getStaticProps` 函数，服务端运行。
 
+next 会在<span style="color: #ee8888;">每次构建</span>时调用它，给 UI 组件提供 Props。
+``` js
 export async function getStaticProps(context) {
     const {
         params,  // 路由参数，若页面文件为 [id].js，params 的值将会是 { id: ... }
@@ -464,6 +463,7 @@ export async function getStaticProps(context) {
     } = context;
 
     // 异步获取数据
+    // 也可以使用 node 环境的 API
     const data = await fetch('xxx').then(res => res.json());
 
     return {
@@ -474,4 +474,30 @@ export async function getStaticProps(context) {
     };
 }
 ```
--->
+
+#### getServerSideProps (服务端渲染)
+在页面文件中 `export` 的 `getServerSideProps` 函数，服务端运行。
+
+不能与 `getStaticProps` 一起使用。
+
+next 会在<span style="color: #ee8888;">每次请求</span>时调用它，给 UI 组件提供 Props。
+``` js
+export async function getServerSideProps(context) {
+    const {
+        req,  // 等同于 node httpServer req
+        res,  // 等同于 node httpServer res
+        query,  // 页面 query 参数
+        params,  // 路由参数，若页面文件为 [id].js，params 的值将会是 { id: ... }
+        locale,  // 语言设置
+    } = context;
+
+    // 异步获取数据
+    // 也可以使用 node 环境的 API
+    const data = await fetch('xxx').then(res => res.json());
+
+    return {
+        props: { data },  // 提供给 UI 组件的 props
+        notFound: false  // 如果为 true 会返回 404 页面
+    };
+}
+```
