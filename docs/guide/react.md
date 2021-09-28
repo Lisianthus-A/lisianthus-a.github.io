@@ -367,7 +367,7 @@ npm run dev
 ```
 
 #### 可能的编译问题
-目前最新版 Next.js 使用 Webpack5，编译时可能会出现问题，可以在项目根目录添加 next.config.js 文件并填写以下内容来启用 Webpack4：
+目前最新版 Next.js 使用 Webpack5，编译时可能会出现问题，可以在项目根目录添加 `next.config.js` 文件并填写以下内容来启用 Webpack4：
 ``` js
 module.exports = {
     webpack5: false
@@ -380,11 +380,59 @@ module.exports = {
 npx create-next-app --ts my-next-app
 ```
 
-<!-- ### 路由 -->
+### 路由
+
+#### 静态路由
+在 pages 目录下添加对应文件即可。
+- `/pages/index.js` 文件对应地址为 `/`，
+- `/pages/login/index.js` 文件对应地址为 `/login`
+- `/pages/login/one.js` 文件对应地址为 `/login/one`
+
+#### 动态路由
+在 pages 目录下添加以 `[]` 包裹的文件即可。
+- `/pages/[id].js` 文件对应地址为 `/<id>`
+- `/pages/posts/[id].js` 文件对应地址为 `/posts/<id>`
+
+#### getStaticPaths (静态生成)
+动态路由使用，返回该页面组件匹配的路径。
+
+必须结合 `getStaticProps` 使用，否则报错。
+``` js
+export async function getStaticPaths(context) {
+    // 语言设置
+    const { locales, defaultLocale } = context;
+
+    return {
+        // 哪些路径会被预渲染
+        // 假设页面文件为 pages/posts/[id].js 
+        // next 会静态生成 /posts/1 和 /posts/2 两个页面
+        paths: [
+            { id: '1' },
+            { id: '2' },
+        ],
+        // fallback 为 false，不在 paths 列表中的页面会返回 404
+        fallback: false,
+        // fallback 为 true
+        // 在构建期间，paths 包含的路径会被需渲染
+        // 未包含的路径在第一次被访问时，会提供一个 fallback 版本
+        // 页面组件可使用 useRouter().isFallback 中判断是否为 fallback 版本
+        // 可为 fallback 版本提供一个 Loadding 状态
+        // 当 getStaticProps 处理 fallback 完毕时，页面组件收到的 isFallback 会变为 false
+        // fallback 版本被渲染完成时，会被加入到已预渲染的页面列表中
+        fallback: true,
+        // fallback 为 'blocking'
+        // 在构建期间，paths 包含的路径会被需渲染
+        // 未包含的路径在第一次被访问时，会等待 getStaticProps 返回 Props
+        // 期间页面组件不会被呈现
+        // 与 fallback 为 true 类似，不过页面组件不会有 fallback 状态
+        fallback: 'blocking'
+    }
+}
+```
 
 ### 样式
 #### 全局样式
-在 pages 目录下添加文件 _app.js，引入全局样式：
+在 pages 目录下添加文件 `_app.js`，引入全局样式：
 ``` js
 import '../styles/global.css';
 
@@ -394,11 +442,11 @@ export default function App({ Component, pageProps }) {
 ``` 
 
 #### 开启 CSS 模块化
-样式文件以 .module.css 和 .module.scss 结尾即可。 
+样式文件以 `.module.css` 和 `.module.scss` 结尾即可。 
 
 ### Next 组件
 #### Head
-类似 head 标签，组件内 key 相同的标签将会合并。
+类似 `head` 标签，组件内 `key` 相同的标签将会合并。
 
 ``` js
 import Head from 'next/head';
@@ -412,7 +460,7 @@ import Head from 'next/head';
 ```
 
 #### Link
-Link 组件使用 JavaScript 实现的 `客户端导航`，比浏览器的默认导航更快，而且不会重载整个页面。
+`Link` 组件使用 JavaScript 实现的 `客户端导航`，比浏览器的默认导航更快，而且不会重载整个页面。
 
 ``` js
 import Link from 'next/link';
