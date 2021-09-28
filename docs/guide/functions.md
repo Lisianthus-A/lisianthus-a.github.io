@@ -62,38 +62,42 @@ type ImageConvert = (
     /**
      * 图片元素或 base64 数据 或 url 地址
      */
-    img: HTMLImageElement | string,
+    img: HTMLImageElement | HTMLCanvasElement | string,
     /**
      * 是否下载转换后的图片
+     * 
+     * 传入字符串可指定下载后的文件名
      */
     download?: boolean,
     /**
-     * 目标宽度
+     * 转换后的宽度
      */
     width?: number,
     /**
-     * 目标高度
+     * 转换后的高度
      */
     height?: number,
 ) => Promise<string>;
 
-// 将图片转为目标高度和宽度的 base64 数据
+// 将图片转为目标宽度和高度的 base64 数据
 const imageConvert: ImageConvert = async (img, download, width, height) => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const image = new Image();
+    // 图片可能跨域
     image.crossOrigin = 'anonymous';
 
     if (img instanceof HTMLImageElement) {
         image.src = img.src;
+    } else if (img instanceof HTMLCanvasElement) {
+        image.src = img.toDataURL('image/png');
     } else {
         image.src = img;
     }
 
-    await new Promise<void>(resolve => {
-        image.onload = () => {
-            resolve();
-        };
+    // 等待图片加载完成
+    await new Promise<any>(resolve => {
+        image.onload = resolve;
     });
 
     const targetWidth = width || image.width;
@@ -106,7 +110,8 @@ const imageConvert: ImageConvert = async (img, download, width, height) => {
     if (download) {
         const a = document.createElement('a');
         a.href = base64Data;
-        a.download = 'image.png';
+        const fileName = typeof download === 'string' ? download : 'image';
+        a.download = `${fileName}.png`;
         a.click();
     }
 
