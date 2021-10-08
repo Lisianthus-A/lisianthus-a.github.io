@@ -25,6 +25,7 @@ module.exports = defineUserConfig<DefaultThemeOptions>({
                     // '/guide/css.md',
                     '/guide/react.md',
                     '/guide/typescript.md',
+                    '/guide/browser.md',
                     '/guide/library.md',
                     '/guide/functions.md',
                     '/guide/git.md',

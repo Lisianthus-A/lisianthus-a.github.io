@@ -6,7 +6,10 @@ html.dark {
     .sidebar::-webkit-scrollbar-thumb {
         background-color: #386d55;
     }
-    
+
+    .language-text code {
+        color: var(--c-text);
+    }
 }
 
 .custom-page-index .hero img {

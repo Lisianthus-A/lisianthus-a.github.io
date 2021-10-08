@@ -1,29 +1,5 @@
 # JavaScript
 
-## 正则
-
-### 正则的一个坑
-上代码：
-``` js
-const regex = /1/g;
-for (let i = 0; i < 4; i++) {
-    console.log(regex.test('123'));  // true false true false
-}
-```
-`test` 返回值不同是因为单个实例 + 全局匹配。
-
-`regex` 匹配过一次后，会记录索引值到 `lastIndex`，再次匹配会从 `lastIndex` 开始。
-
-要从头匹配的话，可以设置 `lastIndex = 0`。
-
-``` js
-const regex = /1/g;
-for (let i = 0; i < 4; i++) {
-    console.log(regex.test('123'));  // true true true true
-    regex.lastIndex = 0;
-}
-```
-
 ## 事件循环
 js 引擎在执行任务时，不会等待异步任务的结果返回，而是将其挂起，等结果返回了再将异步任务的回调加入事件队列。
 
@@ -73,6 +49,30 @@ const o = new f();
 console.log(o.__proto__ === f.prototype);  // true
 f.prototype.a = 1;
 console.log(o.a);  // 1
+```
+
+## 正则
+
+### 正则的一个坑
+上代码：
+``` js
+const regex = /1/g;
+for (let i = 0; i < 4; i++) {
+    console.log(regex.test('123'));  // true false true false
+}
+```
+`test` 返回值不同是因为单个实例 + 全局匹配。
+
+`regex` 匹配过一次后，会记录索引值到 `lastIndex`，再次匹配会从 `lastIndex` 开始。
+
+要从头匹配的话，可以设置 `lastIndex = 0`。
+
+``` js
+const regex = /1/g;
+for (let i = 0; i < 4; i++) {
+    console.log(regex.test('123'));  // true true true true
+    regex.lastIndex = 0;
+}
 ```
 
 ## 编程题
