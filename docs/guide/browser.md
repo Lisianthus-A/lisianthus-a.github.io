@@ -70,3 +70,20 @@ document.domain = 'example.com';
 // 此时可请求一级域名的地址而不会跨域
 fetch(`http://example.com/api/getNum`)
 ```
+
+## 缓存策略
+HTTP 缓存分为强缓存和协商缓存。
+
+如果资源命中了缓存，强缓存不会向服务器发出请求，而协商缓存会向服务器发出请求。
+
+### 强缓存
+由 `Expires` 和 `Cache-Control` 控制。
+- `Expires`: 指定一个日期，在此日期前使用缓存，不再请求资源。优先级比 `Cache-Control` 低。
+- `Cache-Control`: 通常用 `max-age: <seconds>` 表示最长缓存时间。
+
+### 协商缓存
+由 `ETag / If-None-Match​` 或 `Last-Modified / If-Modified-Since​` 控制。
+- `ETag / If-None-Match​`: 通过唯一标识验证缓存。若响应头带有 `ETag`，客户端可在后续请求头中携带 `If-None-Match`，
+如果服务器判断资源未过期，可返回 304 Not Modified 告诉客户端使用缓存。
+- `Last-Modified` / If-Modified-Since​: 通过最后修改时间验证缓存。若响应头带有 `Last-Modified`，
+客户端可在后续请求头中携带 `If-Modified-Since​`，如果服务器判断资源未过期，可返回 304 Not Modified 告诉客户端使用缓存。
