@@ -1,0 +1,1 @@
+const e={key:"v-39a94082",path:"/guide/nodejs.html",title:"Node.js",lang:"en-US",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1633680119e3},filePathRelative:"guide/nodejs.md"};export{e as data};

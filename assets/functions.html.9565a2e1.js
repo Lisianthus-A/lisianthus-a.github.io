@@ -1,77 +1,48 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="generator" content="VuePress 2.0.0-beta.35">
-    <style>
-      :root {
-        --c-bg: #fff;
-      }
-      html.dark {
-        --c-bg: #22272e;
-      }
-      html, body {
-        background-color: var(--c-bg);
-      }
-    </style>
-    <script>
-      const userMode = localStorage.getItem('vuepress-color-scheme');
-			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
-				document.documentElement.classList.toggle('dark', true);
-			}
-    </script>
-    <link rel="icon" href="/favicon.jpg"><title>部分功能实现 | Lisianthus的小站</title><meta name="description" content="Be Happy To">
-    <link rel="modulepreload" href="/assets/app.dd20dfb6.js"><link rel="modulepreload" href="/assets/functions.html.bad70579.js"><link rel="modulepreload" href="/assets/functions.html.9565a2e1.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper.21dcd24c.js">
-    <link rel="stylesheet" href="/assets/style.db659c6e.css">
-  </head>
-  <body>
-    <div id="app"><!--[--><div class="theme-container"><!--[--><header ref_key="navbar" class="navbar"><div class="toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a href="/" class=""><!----><span class="site-name">Lisianthus的小站</span></a></span><div class="navbar-items-wrapper" style=""><!--[--><!--]--><nav class="navbar-items can-hide"><!--[--><div class="navbar-item"><a href="/" class="" aria-label="主页"><!--[--><!--]--> 主页 <!--[--><!--]--></a></div><div class="navbar-item"><a href="/guide/index.html" class="" aria-label="笔记"><!--[--><!--]--> 笔记 <!--[--><!--]--></a></div><div class="navbar-item"><a class="external-link" href="https://github.com/Lisianthus-A/Lisianthus-A.github.io" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-dark-button" title="toggle dark mode"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="sidebar-mask"></div><!--[--><aside class="sidebar"><nav class="navbar-items"><!--[--><div class="navbar-item"><a href="/" class="" aria-label="主页"><!--[--><!--]--> 主页 <!--[--><!--]--></a></div><div class="navbar-item"><a href="/guide/index.html" class="" aria-label="笔记"><!--[--><!--]--> 笔记 <!--[--><!--]--></a></div><div class="navbar-item"><a class="external-link" href="https://github.com/Lisianthus-A/Lisianthus-A.github.io" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-items"><!--[--><li><p tabindex="0" class="sidebar-item sidebar-heading active">笔记 <!----></p><!--[--><ul style="" class="sidebar-item-children"><!--[--><li><a href="/guide/" class="router-link-active sidebar-item" aria-label="JavaScript"><!--[--><!--]--> JavaScript <!--[--><!--]--></a><!----></li><li><a href="/guide/react.html" class="sidebar-item" aria-label="React"><!--[--><!--]--> React <!--[--><!--]--></a><!----></li><li><a href="/guide/typescript.html" class="sidebar-item" aria-label="TypeScript"><!--[--><!--]--> TypeScript <!--[--><!--]--></a><!----></li><li><a href="/guide/browser.html" class="sidebar-item" aria-label="浏览器"><!--[--><!--]--> 浏览器 <!--[--><!--]--></a><!----></li><li><a href="/guide/library.html" class="sidebar-item" aria-label="库"><!--[--><!--]--> 库 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/guide/functions.html" class="router-link-active router-link-exact-active router-link-active sidebar-item active" aria-label="部分功能实现"><!--[--><!--]--> 部分功能实现 <!--[--><!--]--></a><!--[--><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/guide/functions.html#audiocontext-播放音频" class="router-link-active router-link-exact-active sidebar-item" aria-label="AudioContext 播放音频"><!--[--><!--]--> AudioContext 播放音频 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/guide/functions.html#图片转换" class="router-link-active router-link-exact-active sidebar-item" aria-label="图片转换"><!--[--><!--]--> 图片转换 <!--[--><!--]--></a><!----></li><!--]--></ul><!--]--></li><li><a href="/guide/git.html" class="sidebar-item" aria-label="Git"><!--[--><!--]--> Git <!--[--><!--]--></a><!----></li><li><a href="/guide/vuepress.html" class="sidebar-item" aria-label="VuePress"><!--[--><!--]--> VuePress <!--[--><!--]--></a><!----></li><!--]--></ul><!--]--></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><h1 id="部分功能实现" tabindex="-1"><a class="header-anchor" href="#部分功能实现" aria-hidden="true">#</a> 部分功能实现</h1><h2 id="audiocontext-播放音频" tabindex="-1"><a class="header-anchor" href="#audiocontext-播放音频" aria-hidden="true">#</a> AudioContext 播放音频</h2><div class="language-typescript ext-ts"><pre class="language-typescript"><code><span class="token keyword">const</span> audioContext<span class="token operator">:</span> AudioContext <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AudioContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+import{c as n}from"./app.dd20dfb6.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const a={},t=n(`<h1 id="\u90E8\u5206\u529F\u80FD\u5B9E\u73B0" tabindex="-1"><a class="header-anchor" href="#\u90E8\u5206\u529F\u80FD\u5B9E\u73B0" aria-hidden="true">#</a> \u90E8\u5206\u529F\u80FD\u5B9E\u73B0</h1><h2 id="audiocontext-\u64AD\u653E\u97F3\u9891" tabindex="-1"><a class="header-anchor" href="#audiocontext-\u64AD\u653E\u97F3\u9891" aria-hidden="true">#</a> AudioContext \u64AD\u653E\u97F3\u9891</h2><div class="language-typescript ext-ts"><pre class="language-typescript"><code><span class="token keyword">const</span> audioContext<span class="token operator">:</span> AudioContext <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AudioContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> gainNode<span class="token operator">:</span> GainNode <span class="token operator">=</span> audioContext<span class="token punctuation">.</span><span class="token function">createGain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 gainNode<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>audioContext<span class="token punctuation">.</span>destination<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> currentSource<span class="token operator">:</span> AudioBufferSourceNode <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 
-<span class="token comment">// 播放音频</span>
+<span class="token comment">// \u64AD\u653E\u97F3\u9891</span>
 <span class="token keyword">const</span> play <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>arrayBuffer<span class="token operator">:</span> ArrayBuffer<span class="token punctuation">,</span> offset<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token operator">&gt;</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment">// 停止当前音频</span>
+    <span class="token comment">// \u505C\u6B62\u5F53\u524D\u97F3\u9891</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>currentSource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         currentSource<span class="token punctuation">.</span>onended <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token comment">// 必须 stop 掉当前音频</span>
-        <span class="token comment">// 否则就算 disconnect 了还是会继续播放</span>
-        <span class="token comment">// 占用内存</span>
+        <span class="token comment">// \u5FC5\u987B stop \u6389\u5F53\u524D\u97F3\u9891</span>
+        <span class="token comment">// \u5426\u5219\u5C31\u7B97 disconnect \u4E86\u8FD8\u662F\u4F1A\u7EE7\u7EED\u64AD\u653E</span>
+        <span class="token comment">// \u5360\u7528\u5185\u5B58</span>
         currentSource<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         currentSource<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token comment">// 创建 Source</span>
+    <span class="token comment">// \u521B\u5EFA Source</span>
     <span class="token keyword">const</span> source <span class="token operator">=</span> audioContext<span class="token punctuation">.</span><span class="token function">createBufferSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     source<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>gainNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
     currentSource <span class="token operator">=</span> source<span class="token punctuation">;</span>
 
-    <span class="token comment">// ArrayBuffer 转 AudioBuffer</span>
+    <span class="token comment">// ArrayBuffer \u8F6C AudioBuffer</span>
     <span class="token keyword">const</span> audioBuffer <span class="token operator">=</span> <span class="token keyword">await</span> audioContext<span class="token punctuation">.</span><span class="token function">decodeAudioData</span><span class="token punctuation">(</span>arrayBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
     source<span class="token punctuation">.</span>buffer <span class="token operator">=</span> audioBuffer<span class="token punctuation">;</span>
 
-    <span class="token comment">// 是否循环播放</span>
+    <span class="token comment">// \u662F\u5426\u5FAA\u73AF\u64AD\u653E</span>
     <span class="token comment">// source.loop = true;</span>
 
     source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>audioContext<span class="token punctuation">.</span>currentTime<span class="token punctuation">,</span> offset<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment">// 暂停播放</span>
+<span class="token comment">// \u6682\u505C\u64AD\u653E</span>
 <span class="token keyword">const</span> pause <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">boolean</span><span class="token operator">&gt;</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     <span class="token keyword">await</span> audioContext<span class="token punctuation">.</span><span class="token function">suspend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment">// 恢复播放</span>
+<span class="token comment">// \u6062\u590D\u64AD\u653E</span>
 <span class="token keyword">const</span> restart <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">boolean</span><span class="token operator">&gt;</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     <span class="token keyword">await</span> audioContext<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment">// 设置音量</span>
+<span class="token comment">// \u8BBE\u7F6E\u97F3\u91CF</span>
 <span class="token keyword">const</span> setVolume <span class="token operator">=</span> <span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     gainNode<span class="token punctuation">.</span>gain<span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -79,33 +50,33 @@ gainNode<span class="token punctuation">.</span><span class="token function">con
 <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">&#39;xxx.mp3&#39;</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=&gt;</span> res<span class="token punctuation">.</span><span class="token function">arrayBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>play<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre></div><h2 id="图片转换" tabindex="-1"><a class="header-anchor" href="#图片转换" aria-hidden="true">#</a> 图片转换</h2><div class="language-typescript ext-ts"><pre class="language-typescript"><code><span class="token keyword">type</span> <span class="token class-name">ImageConvert</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+</code></pre></div><h2 id="\u56FE\u7247\u8F6C\u6362" tabindex="-1"><a class="header-anchor" href="#\u56FE\u7247\u8F6C\u6362" aria-hidden="true">#</a> \u56FE\u7247\u8F6C\u6362</h2><div class="language-typescript ext-ts"><pre class="language-typescript"><code><span class="token keyword">type</span> <span class="token class-name">ImageConvert</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
     <span class="token doc-comment comment">/**
-     * 图片元素或 base64 数据 或 url 地址
+     * \u56FE\u7247\u5143\u7D20\u6216 base64 \u6570\u636E \u6216 url \u5730\u5740
      */</span>
     img<span class="token operator">:</span> HTMLImageElement <span class="token operator">|</span> HTMLCanvasElement <span class="token operator">|</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
     <span class="token doc-comment comment">/**
-     * 是否下载转换后的图片
+     * \u662F\u5426\u4E0B\u8F7D\u8F6C\u6362\u540E\u7684\u56FE\u7247
      * 
-     * 传入字符串可指定下载后的文件名
+     * \u4F20\u5165\u5B57\u7B26\u4E32\u53EF\u6307\u5B9A\u4E0B\u8F7D\u540E\u7684\u6587\u4EF6\u540D
      */</span>
     download<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
     <span class="token doc-comment comment">/**
-     * 转换后的宽度
+     * \u8F6C\u6362\u540E\u7684\u5BBD\u5EA6
      */</span>
     width<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
     <span class="token doc-comment comment">/**
-     * 转换后的高度
+     * \u8F6C\u6362\u540E\u7684\u9AD8\u5EA6
      */</span>
     height<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
 
-<span class="token comment">// 将图片转为目标宽度和高度的 base64 数据</span>
+<span class="token comment">// \u5C06\u56FE\u7247\u8F6C\u4E3A\u76EE\u6807\u5BBD\u5EA6\u548C\u9AD8\u5EA6\u7684 base64 \u6570\u636E</span>
 <span class="token keyword">const</span> imageConvert<span class="token operator">:</span> <span class="token function-variable function">ImageConvert</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>img<span class="token punctuation">,</span> download<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> canvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&#39;canvas&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> ctx <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">&#39;2d&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> image <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// 图片可能跨域</span>
+    <span class="token comment">// \u56FE\u7247\u53EF\u80FD\u8DE8\u57DF</span>
     image<span class="token punctuation">.</span>crossOrigin <span class="token operator">=</span> <span class="token string">&#39;anonymous&#39;</span><span class="token punctuation">;</span>
 
     <span class="token keyword">if</span> <span class="token punctuation">(</span>img <span class="token keyword">instanceof</span> <span class="token class-name">HTMLImageElement</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -116,7 +87,7 @@ gainNode<span class="token punctuation">.</span><span class="token function">con
         image<span class="token punctuation">.</span>src <span class="token operator">=</span> img<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token comment">// 等待图片加载完成</span>
+    <span class="token comment">// \u7B49\u5F85\u56FE\u7247\u52A0\u8F7D\u5B8C\u6210</span>
     <span class="token keyword">await</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span></span><span class="token punctuation">(</span>resolve <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
         image<span class="token punctuation">.</span>onload <span class="token operator">=</span> resolve<span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -132,13 +103,10 @@ gainNode<span class="token punctuation">.</span><span class="token function">con
         <span class="token keyword">const</span> a <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         a<span class="token punctuation">.</span>href <span class="token operator">=</span> base64Data<span class="token punctuation">;</span>
         <span class="token keyword">const</span> fileName <span class="token operator">=</span> <span class="token keyword">typeof</span> download <span class="token operator">===</span> <span class="token string">&#39;string&#39;</span> <span class="token operator">?</span> download <span class="token operator">:</span> <span class="token string">&#39;image&#39;</span><span class="token punctuation">;</span>
-        a<span class="token punctuation">.</span>download <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.png</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+        a<span class="token punctuation">.</span>download <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">\`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">\${</span>fileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.png</span><span class="token template-punctuation string">\`</span></span><span class="token punctuation">;</span>
         a<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token keyword">return</span> base64Data<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre></div><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">最后更新时间: </span><!----></div><!----></footer><nav class="page-nav"><p class="inner"><span class="prev"><a href="/guide/library.html" class="" aria-label="库"><!--[--><!--]--> 库 <!--[--><!--]--></a></span><span class="next"><a href="/guide/git.html" class="" aria-label="Git"><!--[--><!--]--> Git <!--[--><!--]--></a></span></p></nav><!--[--><!--]--></main><!--]--></div><!----><!--]--></div>
-    <script type="module" src="/assets/app.dd20dfb6.js" defer></script>
-  </body>
-</html>
+</code></pre></div>`,5);function p(o,e){return t}var l=s(a,[["render",p]]);export{l as default};
