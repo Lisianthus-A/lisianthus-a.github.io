@@ -1,0 +1,1 @@
+import{o as e,a as o,b as s,e as t}from"./app.6b3eabdf.js";import{_ as a}from"./plugin-vue_export-helper.21dcd24c.js";const r={},c={id:"node-js",tabindex:"-1"},n=s("a",{class:"header-anchor",href:"#node-js","aria-hidden":"true"},"#",-1),d=t(" Node.js"),_=[n,d];function i(h,f){return e(),o("h1",c,_)}var p=a(r,[["render",i]]);export{p as default};
