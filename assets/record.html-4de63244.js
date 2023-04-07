@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-0a7e1abc","path":"/guide/record.html","title":"问题记录","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1680880565000},"filePathRelative":"guide/record.md"}');export{e as data};
