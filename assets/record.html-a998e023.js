@@ -1,1 +1,0 @@
-import{_ as t,p as r,q as a,R as e,t as c}from"./framework-5866ffd3.js";const o={},s=e("h1",{id:"问题记录",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#问题记录","aria-hidden":"true"},"#"),c(" 问题记录")],-1),n=[s];function _(d,i){return r(),a("div",null,n)}const l=t(o,[["render",_],["__file","record.html.vue"]]);export{l as default};
