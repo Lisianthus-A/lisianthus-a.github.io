@@ -28,6 +28,7 @@ module.exports = defineUserConfig({
                         "/guide/typescript.md",
                         "/guide/browser.md",
                         "/guide/library.md",
+                        "/guide/record.md",
                         "/guide/functions.md",
                         "/guide/git.md",
                         "/guide/vuepress.md",
