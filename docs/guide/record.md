@@ -17,3 +17,17 @@
     }
 </style>
 ```
+
+### 3. 小程序 image onload 不触发
+
+部分机型有这个问题，手动触发一下
+
+```js
+const image = canvas.createImage();
+image.src = "xxx";
+const timer = setTimeout(func, 3000);
+image.onload = () => {
+    clearTimeout(timer);
+    func();
+};
+```
