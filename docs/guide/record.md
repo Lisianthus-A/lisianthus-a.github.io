@@ -20,7 +20,7 @@
 
 ### 3. 小程序 image onload 不触发
 
-部分机型有这个问题，手动触发一下
+部分机型在已缓存过图片的情况下，会有这个问题，手动触发一下
 
 ```js
 const image = canvas.createImage();
