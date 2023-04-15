@@ -31,3 +31,8 @@ image.onload = () => {
     func();
 };
 ```
+
+### 4. 设置 element.style.xxx 无效
+
+在部分电视机顶盒的 webview 上遇到过，手动触发浏览器重绘后，属性也没生效。
+可尝试使用 `element.style.setProperty` 和 `element.style.cssText`，一般会有其中一个兼容。
