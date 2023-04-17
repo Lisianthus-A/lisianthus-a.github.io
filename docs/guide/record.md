@@ -36,3 +36,7 @@ image.onload = () => {
 
 在部分电视机顶盒的 webview 上遇到过，手动触发浏览器重绘后，属性也没生效。
 可尝试使用 `element.style.setProperty` 和 `element.style.cssText`，一般会有其中一个兼容。
+
+### 5. resize 事件监听在 iOS 横屏时没触发
+
+安卓横屏正常触发 resize 事件监听，iOS 需要额外监听 orientationchange 横屏事件
