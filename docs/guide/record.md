@@ -40,3 +40,16 @@ image.onload = () => {
 ### 5. resize 事件监听在 iOS 横屏时没触发
 
 安卓横屏正常触发 resize 事件监听，iOS 需要额外监听 orientationchange 横屏事件
+
+### 6. 动画时，element.getBoundingClientRect 获取的数值在与动画后不同
+
+通过 offsetParent 获取
+
+```js
+let el = element;
+let offsetLeft = 0;
+while (el) {
+    offsetLeft += el.offsetLeft;
+    el = el.offsetParent;
+}
+```
