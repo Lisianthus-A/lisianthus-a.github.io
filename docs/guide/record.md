@@ -53,3 +53,18 @@ while (el) {
     el = el.offsetParent;
 }
 ```
+
+### 7. 在没有滚动条的情况下，按上方向键，页面整体上移
+
+电视盒子 webview 页面没有内容溢出，没有出现滚动条，但在按上方向键时，页面会整体上移。
+
+使用 `document.body.getBoundingClientRect()` 发现 body 的 y 值是负的，也就是 body 往上偏移了，
+但 body 的样式上并没有 top、transform 等可能造成偏移的属性。
+
+经过调试，发现 webview 可能被运营商魔改过，上方向键存在默认行为，阻止默认行为即可。
+
+```js
+document.onkeydown = function (evt) {
+    evt.preventDefault();
+};
+```
