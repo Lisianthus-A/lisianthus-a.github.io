@@ -1,1 +1,0 @@
-import{_ as s,p as t,q as c,R as e,t as a}from"./framework-5866ffd3.js";const r={},o=e("h1",{id:"css",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#css","aria-hidden":"true"},"#"),a(" CSS")],-1),n=[o];function _(d,i){return t(),c("div",null,n)}const l=s(r,[["render",_],["__file","css.html.vue"]]);export{l as default};

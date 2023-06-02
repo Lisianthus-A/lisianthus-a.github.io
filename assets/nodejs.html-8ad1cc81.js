@@ -1,0 +1,1 @@
+import{_ as s,p as t,q as o,R as e,t as a}from"./framework-c4f3d865.js";const n={},c=e("h1",{id:"node-js",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#node-js","aria-hidden":"true"},"#"),a(" Node.js")],-1),d=[c];function r(_,i){return t(),o("div",null,d)}const l=s(n,[["render",r],["__file","nodejs.html.vue"]]);export{l as default};
